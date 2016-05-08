@@ -5,8 +5,6 @@ git clone https://github.com/shyamchandranmec/currently-viewing-app.git
 
 cd currently-viewing-app
 
-git checkout dev-shyam
-
 npm install
 
 node app.js
