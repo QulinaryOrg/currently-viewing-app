@@ -16,13 +16,13 @@ A single-page web app that:
 
 ## Installation Instructions
 
-1. **Clone this repository:**
+1. Clone this repository:
 	`$ git clone https://github.com/Arania/currently-viewing-app.git`
-2. **Make sure [NodeJS](http://www.nodejs.org) and [NPM](http://www.npmjs.com) are installed on your system**
-3. **Change to application directory:**
+2. Make sure [NodeJS](http://www.nodejs.org) and [NPM](http://www.npmjs.com) are installed on your system
+3. Change to application directory:
 	`$ cd currently-viewing-app`
-4. **Install required packages:**
+4. Install required packages:
 	`$ npm install`
 
 ## Running the Application:
-	$ npm start
+	``$ npm start`
