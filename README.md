@@ -25,9 +25,9 @@ A single-page web app that:
 	`$ npm install`
 
 ## Running the Application:
-	1. `$ npm start`
+	1. $ npm start
 	2. The application can be accessed on http://YOUR-MACHINE-IP:3000
 	3. (Optionally) To change the default port, run the following -
-	 		`$ set PORT=4000`
-			`$ npm start`
+	 		$ set PORT=4000
+			$ npm start
 			The application will then be available on http://YOUR-MACHINE-IP:4000
