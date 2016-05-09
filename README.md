@@ -3,7 +3,7 @@
 Shows a list of IP addresses viewing the page
 
 ## Demonstration
-	[currently-viewing-app.herokuapp.com](http://currently-viewing-app.herokuapp.com)
+	http://currently-viewing-app.herokuapp.com
 
 ## Requirements
 
