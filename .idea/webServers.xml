@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="375e0799-3708-41fe-9617-d3d12f5c5da8" name="Local Dev" url="http://192.168.1.104:3000">
+        <fileTransfer host="192.168.1.104" port="22" rootFolder="/home/arania" accessType="SFTP" password="dfeddfcbdfd8dfc3dfc7dfcbdf93df99" username="arania">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
