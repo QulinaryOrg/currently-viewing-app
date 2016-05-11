@@ -31,3 +31,8 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# Firebase realted items
+public
+firebase.json
+build.sh
