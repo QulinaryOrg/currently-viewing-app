@@ -1,0 +1,41 @@
+body {
+  background: #F5F6FA;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.title {
+  font-family: Helvetica;
+  font-weight: 300;
+  margin-top: 1em;
+  color: #43484D;
+}
+
+.live-count {
+  color: #5E6977;
+  font-weight: 500;
+}
+
+.sub-text {
+  color: #86939E;
+}
+
+.device-list-panel {
+  background: #FFF;
+  border-radius: 4px;
+  width: 360px;
+  height: 400px;
+  margin: 35px auto 15px;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.device-list-panel .device-list-item {
+  width: 100%;
+  height: 45px;
+  list-style: none;
+  margin: 0 0 20px;
+}
