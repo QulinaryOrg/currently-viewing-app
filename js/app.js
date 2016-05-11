@@ -52,4 +52,3 @@ var currentlyViewApp = angular.module('currentlyviewing', ['firebase'])
   };
 
 }]);
-
