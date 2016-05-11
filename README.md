@@ -15,6 +15,5 @@
 - Capped at 100 users currently since it is free version of Firebase. Could upgrade to unlimited to avoid concurrent user cap
 
 #Live Deployment
-Visit:
-
+Visit: https://currently-viewing.firebaseapp.com
 

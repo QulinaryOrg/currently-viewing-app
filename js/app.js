@@ -32,7 +32,7 @@ var currentlyViewApp = angular.module('currentlyviewing', ['firebase'])
   //Gets the device's IP Address
   self.getIPAddress = function() {
     // https://www.ipify.org/
-    return $http.get('http://api.ipify.org?format=json');
+    return $http.get('https://api.ipify.org?format=json');
   };
 
   //Lets use know what kind of device this is
