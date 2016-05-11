@@ -38,17 +38,17 @@ var currentlyViewApp = angular.module('currentlyviewing', ['firebase'])
   //Lets use know what kind of device this is
   self.getDeviceType = function() {
     var ua = navigator.userAgent;
-		var checker = {
-			iphone: ua.match(/(iPhone|iPod|iPad)/),
-			blackberry: ua.match(/BlackBerry/),
-			android: ua.match(/Android/)
-		};
+    var checker = {
+      iphone: ua.match(/(iPhone|iPod|iPad)/),
+      blackberry: ua.match(/BlackBerry/),
+      android: ua.match(/Android/)
+    };
 
-		if (checker.android || checker.iphone || checker.blackberry) {
-	    return 'Mobile';
+    if (checker.android || checker.iphone || checker.blackberry) {
+      return 'Mobile';
     } else {
-			return 'Desktop';
-		}
+      return 'Desktop';
+    }
   };
 
 }]);
