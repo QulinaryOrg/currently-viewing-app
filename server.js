@@ -2,6 +2,7 @@ var express		= require('express');
 var expressWs		= require('express-ws');
 
 var server		= expressWs(express()).app;
+server.port		= 8000;
 var IPAddresses		= {};
 var WebSockets		= {};
 
@@ -64,8 +65,8 @@ server.use('/api', function (req, res) {
 });
 
 if (!module.parent) {
-    server.listen(80);
-    console.log('Server is up and listening on port 80');
+    server.listen(server.port);
+    console.log('Server is up and listening on port '+server.port);
 }
 else
     module.exports = server;

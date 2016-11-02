@@ -1,6 +1,7 @@
 
 var supertest	= require('supertest-as-promised');
-var request	= supertest('localhost');
+var server	= require('../server.js');
+var request	= supertest('localhost:'+server.port);
 
 function removeViewer(ip) {
     console.log('Closed viewer with IP', ip);
