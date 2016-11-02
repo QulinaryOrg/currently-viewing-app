@@ -1,0 +1,20 @@
+<div layout="column" layout-fill>
+    <md-toolbar class="md-whiteframe-2dp md-accent">
+	<div class="md-toolbar-tools">
+	    <h2>{{pageTitle}}</h2>
+	</div>
+    </md-toolbar>
+    
+    <md-content layout-padding flex>
+	<md-list ng-show="addressList">
+	    <md-list-item class="md-2-line" ng-repeat="(ip, _) in addressList">
+		<md-icon style="font-size: 40px;">person</md-icon>
+		<div class="md-list-item-text">
+		    <h3>{{ip}}</h3>
+		    <p>Currently viewing this page</p>
+		</div>
+	    </md-list-item>
+	</md-list>
+    </md-content>
+
+</div>

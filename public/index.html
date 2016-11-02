@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" >
+    <head>
+	<!-- Twitter Bootstrap -->
+	<link rel="stylesheet" href="/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+	<!-- Angular Material & Material  -->
+	<link rel="stylesheet" href="/angularjs/material/1.0.0/angular-material.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">[ng-cloak] {display: none;}</style>
+	
+	<!-- Application Custom Styling -->
+	<link href="/css/custom.css" media="all" rel="stylesheet" type="text/css" />
+	
+	<!-- Configurations -->
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+				       initial-scale=1, maximum-scale=1.0">
+    </head>
+    <body ng-cloak>
+	
+	<!-- App Space -->
+	<div layout="row" layout-fill>
+	    <md-content ng-view flex layout-fill></md-content>
+	</div>
+	<!-- End App Space -->
+
+	<script data-main="init.js" src="/requirejs/require.js"></script>
+    </body>
+</html>

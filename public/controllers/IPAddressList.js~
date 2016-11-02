@@ -1,0 +1,91 @@
+define(['app'], function (app) { 
+    console.log(arguments);
+    app.controller('UserListCtrl',[
+        '$scope', '$timeout', '$mdSidenav', '$mdDialog', '$log',
+        function ($scope, $timeout, $mdSidenav, $mdDialog, $log) {
+            $scope.Py		= Py;
+            $scope.pageTitle	= 'Account Manager';
+            $requireAdmin($scope.pageTitle);
+
+            $scope.user		= null;	// non-plural used for details pane
+            $scope.openDetails	= function(user, title) {
+                user.deactivated	= title.toLowerCase() === 'deactivated';
+
+                // Make sure metadata and metadata properties are dictionaries
+                if (Py.type(user.metadata) !== "Object")
+                user.metadata	= {};
+
+                $scope.user		= user;
+                $mdSidenav('details').open();
+            }
+
+            // Define the actions that are allowed to be done on this page.
+            $scope.pageActions	= [{
+                "label": "Add User",
+                "icon": "plus",
+                "click": function(action) {
+                    $redirect("users/create");
+                }
+            }];
+
+            // Deactivate with popup confirmation
+            $scope.deactivateUser = function(user) {
+                $mdDialog.show(
+                    dialog.deactivate().textContent('Are you sure you want to deactivate '+user.name.full+'?')
+                ).then(function() {
+                    $API('users/'+user.id+'/deactivate').then(function(d) {
+                        $scope.refresh();
+                        $scope.user	= null;
+                    }, dialog.alertError);
+                });
+            }
+            // Reactivate
+            $scope.reactivateUser = function(user) {
+                $API('users/'+user.id+'/reactivate').then(function(d) {
+                    $scope.refresh();
+                    $scope.user	= null;
+                }, dialog.alertError);
+            }
+
+            // Delete with popup confirmation
+            $scope.deleteUser = function(user) {
+                $mdDialog.show(
+                    dialog.del().textContent('Are you sure you want to permanently delete '+user.name.full+' ('+user.email+')?')
+                ).then(function() {
+                    $API('users/'+user.id+'/delete?permanent=true').then(function(d) {
+                        $scope.refresh();
+                        $scope.user	= null;
+                    }, dialog.alertError);
+                });
+            }
+
+            // Save changes with success alert
+            $scope.saveUserDetails = function($event, user) {
+                $scope.saving	= true;
+                var $event	= eventAnimation($event);
+                $event.disable();
+                $API('users/'+user.id+'/update', {
+                    data: user
+                }).then(function(d, r) {
+                    $scope.users[d.id]	= d;
+                    $notify('Successfully saved user details for '+user.name.full);
+                    $scope.saving	= false;
+                    $event.stop();
+                }, dialog.alertError);
+            }
+
+            // Fetch page data
+            $scope.refresh	= metaRefresh($scope, {
+                "Users": 'users',
+                "Deactivated": 'users/deactivated',
+                "ClientUsers": "clients/users"
+            }, function(data) {
+                $scope.users		= data['Users'];
+                $scope.clients		= data['ClientUsers'];
+                $scope.deactivatedUsers	= data['Deactivated'];
+                $scope.tabData		= data;
+            });
+            $scope.refresh();
+        }
+    ]);
+});
