@@ -1,0 +1,24 @@
+{
+  "name": "currently-viewing-app",
+  "version": "1.0.0",
+  "description": "Display a list of IP Addresses currently viewing the page",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjbrisebois/currently-viewing-app.git"
+  },
+  "author": "Matthew Brisebois",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjbrisebois/currently-viewing-app/issues"
+  },
+  "homepage": "https://github.com/mjbrisebois/currently-viewing-app",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-ws": "^2.0.0"
+  }
+}
