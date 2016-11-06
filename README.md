@@ -13,7 +13,7 @@ Functionalities:
 
 1. Clone the project:
 ```
-  git clone git@github.com:chilno/currently-viewing-app.git
+  git clone git@github.com/chilno/currently-viewing-app.git
 
 ```
 2. Run npm to install the dependencies:
@@ -21,7 +21,7 @@ Functionalities:
   npm install
 
 ```
-3. Install bower globally (if you don't have it) then run it:
+3. Install bower globally (if you don't have it) then run it to install front-end dependencies:
 ```
   npm install -g bower
   bower install
@@ -29,7 +29,7 @@ Functionalities:
 ```
 4. Start your server:
 ```
-  npm server
+  node server
 
 ```
 5. Open your browser and navigate to:
