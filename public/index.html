@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Taro</title>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="lib/angular.js"></script>
+		<script src="lib/angular-ui-router.min.js"></script>
+		<script src="lib/angular-cookies.min.js"></script>
+		
+		<script src="javascripts/utils.js"></script>
+		<script src="javascripts/taro_app.js"></script>
+		<script src="javascripts/config.js"></script>
+		
+		<script src="javascripts/factories/socket_factory.js"></script>
+		<script src="javascripts/factories/profile_factory.js"></script>
+		<script src="javascripts/factories/access_factory.js"></script>
+		
+		<script src="javascripts/services/auth_service.js"></script>
+		<script src="javascripts/services/post_service.js"></script>
+		
+		<script src="javascripts/controllers/header_controller.js"></script>
+		<script src="javascripts/controllers/login_controller.js"></script>
+		<script src="javascripts/controllers/main_controller.js"></script>
+		<script src="javascripts/controllers/register_controller.js"></script>
+
+		<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+		<link rel="stylesheet" href="stylesheets/style.css">
+	</head>
+	<body ng-app="taroApp">
+		<div id='main' class="container">
+			<!--header-->
+			<div ui-view="header"></div>
+			
+			<!--content area-->
+			<div class="col-md-offset-2 col-md-8">
+				<div ui-view="content">
+				</div>
+				<h3>Please move to http://127.0.0.1:3000/#/ to see contents. Will this bug latter.</h3>
+			</div>
+			
+			<!--footer-->
+			<div ui-view="footer"></div>
+
+
+		</div>
+	</body>
+</html>
