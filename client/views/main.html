@@ -5,12 +5,14 @@
 				<th>IP</th>
 				<th>City</th>
 				<th>Country</th>
+				<th>Flag</th>
 			</thead>
 			<tbody>
 				<tr ng-repeat="location in locations">
 					<td>{{location.address}}</td>
 					<td>{{location.infos.city}}</td>
 					<td>{{location.infos.country}}</td>
+					<td><img ng-if="location.infos.countryCode" ng-src= "http://www.geonames.org/flags/x/{{location.infos.countryCode | lowercase}}.gif"></td>
 				</tr>
 			</tbody>
 		</tbody>
