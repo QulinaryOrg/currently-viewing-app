@@ -1,0 +1,19 @@
+{
+  "name": "currently-viewing-app",
+  "version": "1.0.0",
+  "description": "SPA web app that shows the list of IP addresses currently viewing the app.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elijahlofgren/currently-viewing-app.git"
+  },
+  "author": "Elijah Lofgren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elijahlofgren/currently-viewing-app/issues"
+  },
+  "homepage": "https://github.com/elijahlofgren/currently-viewing-app#readme"
+}
