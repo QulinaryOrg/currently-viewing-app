@@ -1,0 +1,18 @@
+<div class="jumbotron">
+	<table class="table table-inverse">
+		<tbody>
+			<thead>
+				<th>IP</th>
+				<th>City</th>
+				<th>Country</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="location in locations">
+					<td>{{location.address}}</td>
+					<td>{{location.infos.city}}</td>
+					<td>{{location.infos.country}}</td>
+				</tr>
+			</tbody>
+		</tbody>
+	</table>
+</div>

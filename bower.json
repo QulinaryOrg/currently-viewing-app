@@ -1,0 +1,22 @@
+{
+  "name": "currently-viewing-app",
+  "description": "Shows a list of IP addresses viewing the page",
+  "main": "server.js",
+  "authors": [
+    "Nazim Bellahsene"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/chilno/currently-viewing-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}
