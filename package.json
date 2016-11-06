@@ -4,7 +4,6 @@
   "description": "Shows a list of IP addresses viewing the page",
   "main": "server.js",
   "scripts": {
-    // "postinstall": "bower install",
     "test": "mocha tests/test.js"
   },
   "repository": {
