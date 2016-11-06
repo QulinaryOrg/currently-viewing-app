@@ -13,7 +13,7 @@ Functionalities:
 
 1. Clone the project:
 ```
-  git clone git@github.com/chilno/currently-viewing-app.git
+  git clone https://git@github.com/chilno/currently-viewing-app.git
 
 ```
 2. Run npm to install the dependencies:
