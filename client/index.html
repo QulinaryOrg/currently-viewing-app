@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app= "app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Currently Viewing App">
+    <meta name="author" content="Nazim Bellahsene">
+
+    <title>Live Clients Locations</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
+
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+
+    <!-- Controllers -->
+    <script src="controllers/mainCtrl.js"></script>
+
+    <!-- Factories -->
+    <script src="factories/socketFactory.js"></script>
+
+    <!-- App -->
+    <script src="routes.js"></script>
+    <script src="app.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Visitors IP's</a>
+          </div>
+        </div>
+      </nav>
+      <div ng-view></div>
+    </div>
+  </body>
+</html>

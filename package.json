@@ -1,0 +1,26 @@
+{
+  "name": "currently-viewing-app",
+  "version": "1.0.0",
+  "description": "Shows a list of IP addresses viewing the page",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chilno/currently-viewing-app.git"
+  },
+  "author": "Nazim Bellahsene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chilno/currently-viewing-app/issues"
+  },
+  "homepage": "https://github.com/chilno/currently-viewing-app#readme",
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.5.1"
+  }
+}
