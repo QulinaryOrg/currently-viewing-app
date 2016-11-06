@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/elijahlofgren/currently-viewing-app/issues"
   },
-  "homepage": "https://github.com/elijahlofgren/currently-viewing-app#readme"
+  "homepage": "https://github.com/elijahlofgren/currently-viewing-app#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.6",
+    "path": "^0.12.7"
+  }
 }
