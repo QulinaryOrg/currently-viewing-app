@@ -1,0 +1,9 @@
+{
+  "name": "currently-viewing-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "angular": "^1.5.8"
+  }
+}
