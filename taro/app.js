@@ -32,7 +32,6 @@ var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
 var ipsockets = require('./routes/ipsockets.js');
 
-
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 io.on('connection', ipsockets);
