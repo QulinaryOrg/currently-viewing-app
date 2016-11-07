@@ -8,7 +8,6 @@ angular.module('currentlyViewing', [
     'currentlyViewing.current_visitors',
     'currentlyViewing.fancy_current_visitors'
 ]).
-    // TO DO: If don't end up using Google Maps remove the code below.
     config(['$locationProvider', '$routeProvider', '$sceDelegateProvider',
         function ($locationProvider, $routeProvider, $sceDelegateProvider) {
             $locationProvider.hashPrefix('!');
