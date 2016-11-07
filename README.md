@@ -1,10 +1,3 @@
-##### Attention! Currently there is a small bug in app, please visit 
-	$ http://127.0.0.1:3000/#/
-	instead of 
-	$ http://127.0.0.1:3000
-
-	Will fix it tomorrow
-
 # Currently Viewing App
 
 Shows a list of IP addresses viewing the page.
@@ -48,7 +41,7 @@ The following assumes you have all of the recommended tools listed above install
 
 #### 5. Load the system in browser:
 
-    Visit http://127.0.0.1:3000/#/
+    Visit http://127.0.0.1:3000
 
 
 ### References:
