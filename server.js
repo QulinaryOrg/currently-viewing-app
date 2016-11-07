@@ -48,5 +48,5 @@ io.on('connection', function (socket) {
 // Explicitly listen on 0.0.0.0 so that when 
 // running from localhost we get 127.0.0.1 as the IP.
 http.listen(3000, '0.0.0.0', function () {
-    console.log('currently-viewing-app listening on IP & port 127.0.0.1:3000!');
+    console.log('currently-viewing-app listening on port 3000!');
 });
