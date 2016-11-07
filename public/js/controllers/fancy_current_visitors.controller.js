@@ -45,9 +45,13 @@ function FancyCurrentVisitorsController($q, visitorService, geoipService) {
             $q.all(vm.locationPromises).then(function (responsesArray) {
                 // Clear visitors array before we start re-populating it.
                 vm.visitors.length = 0;
+                console.log('vm.visitors =');
+                console.log(vm.visitors);
                 angular.forEach(responsesArray, function (response) {
                     vm.visitors.push(response.data);
                 });
+                console.log('now vm.visitors =');
+                console.log(vm.visitors);
             });
         });
     }
