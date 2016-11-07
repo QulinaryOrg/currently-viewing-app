@@ -2,6 +2,39 @@
 
 Shows a list of IP addresses viewing the page
 
+## Installation & DB Configuration
+
+Make sure you have MongoDB installed (install it if needed). 
+If needed, edit the mongodb URL in config/db.js.
+
+If you don't have bower installed, install it by running:
+~~~~
+npm install -g bower
+~~~~
+
+Check out the code and in the checkout directory run:
+~~~~
+npm install
+bower install
+~~~~
+
+## Running App 
+In the checkout directory run:
+~~~~
+node server.js
+~~~~
+
+Then visit the following URL in your browser:
+[http://localhost:3000/](http://localhost:3000)
+
+To see a Google map of current visitor locations click the
+"click here to view visitors with location" link or go to:
+[http://localhost:3000/#!/fancy](http://localhost:3000/#!/fancy)
+
+Example (from running instance at [http://tmpcvapp.elijahlofgren.com:3000/#!/fancy](http://tmpcvapp.elijahlofgren.com:3000/#!/fancy)):
+
+![Example of Google Map showing two locations](https://raw.github.com/elijahlofgren/currently-viewing-app/master/Screenshot.PNG)
+
 ## Requirements
 
 Create a single-page web app that:

@@ -1,0 +1,10 @@
+{
+  "name": "currently-viewing-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "ngmap": "^1.17.8"
+  }
+}
