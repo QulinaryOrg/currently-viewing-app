@@ -14,7 +14,13 @@ mongoose.Promise = global.Promise;
 // Connect to MongoDB
 mongoose.connect(db.url);
 
-// Serve static files from the "public" directory.
+// Delete any old records of current users
+Visitor.remove({}, function (err) {
+    if (err) {
+        console.error(err);
+    }
+});
+
 app.use(express.static('public'));
 
 // Configure routes
