@@ -15,6 +15,7 @@ app.use(express.static('public'));
 // Configure routes
 require('./app/routes')(app);
 
+// Explicitly listen on 127.0.0.1 so that when 
 // running from localhost we get 127.0.0.1 as the IP.
 app.listen(3000, '127.0.0.1', function () {
     console.log('currently-viewing-app listening on port 127.0.0.1:3000!');

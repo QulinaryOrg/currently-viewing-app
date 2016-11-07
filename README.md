@@ -2,6 +2,29 @@
 
 Shows a list of IP addresses viewing the page
 
+## Installation & DB Configuration
+
+Make sure you have MongoDB installed (install it if needed). 
+Then edit config/db.js to point to the name a MongoDB that exists 
+(create one if needed).
+
+Check out the code and in the checkout directory run:
+~~~~
+npm install
+bower install
+~~~~
+
+
+
+## Running App 
+In the checkout directory run:
+~~~~
+node server.js
+~~~~
+
+Then visit the following URL in your browser:
+[http://localhost:3000/](http://localhost:8080/)
+
 ## Requirements
 
 Create a single-page web app that:
