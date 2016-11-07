@@ -1,6 +1,6 @@
 Current visitors with approximate location (if available):
 <ul>
-    <li ng-repeat="visitor in fcvCtrl.visitors">
+    <li ng-repeat="visitor in fcvCtrl.visitors track by $index">
         {{visitor.ip}} 
         <span ng-if="visitor.city">
             ({{visitor.city}}, {{visitor.region_name}}, {{visitor.country_name}})
