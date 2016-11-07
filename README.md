@@ -44,11 +44,11 @@ The following assumes you have all of the recommended tools listed above install
 
 #### 4. Run the server:
 
-    $ sudo npm start
+    $ npm start
 
 #### 5. Load the system in browser:
 
-    Visit http://127.0.0.1:5000
+    Visit http://127.0.0.1:3000/#/
 
 
 ### References:
