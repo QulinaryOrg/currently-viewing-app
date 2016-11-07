@@ -10,8 +10,8 @@ angular.module('currentlyViewing.controllers', ['ngRoute'])
     }])
     .controller('CurrentVisitorsController', CurrentVisitorsController);
 
-CurrentVisitorsController.$inject = ['$scope', '$window', 'visitorService'];
-function CurrentVisitorsController($scope, $window, visitorService) {
+CurrentVisitorsController.$inject = ['visitorService'];
+function CurrentVisitorsController(visitorService) {
     var vm = this;
 
     vm.visitors = [];
@@ -21,37 +21,8 @@ function CurrentVisitorsController($scope, $window, visitorService) {
 
     function activate() {
         loadVisitors();
-        // addAndLoadVisitors();
         listenForNewUsers();
     }
-    
-    /*
-    // Event Handlers
-    // Detect leaving this application
-    window.onbeforeunload = function (e) {
-        deleteCurrentVisitor();
-    };
-
-    // Detect change to another angular route
-    $scope.$on('$locationChangeStart', function (event, next, current) {
-        deleteCurrentVisitor();
-        alert('locationChangeStart');
-    });
-
-    function addAndLoadVisitors() {
-        addVisitor().then(function (response) {
-            vm.currentVisitor = response.data;
-            loadVisitors();
-        });
-    }
-
-    function addVisitor() {
-        return visitorService.addVisitor();
-    }
-
-    function deleteCurrentVisitor() {
-        return visitorService.deleteVisitor(vm.currentVisitor._id);
-    }*/
 
     function listenForNewUsers() {
         var socket = io();
