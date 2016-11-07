@@ -30,15 +30,16 @@ so using some 3 way-binding library/framework seemed overkilling too.
 
 ### What yes
 Finally I decided to use:
-* For the backend: Node js.
+* For the back-end: Node js.
   * I use Express to serve the HTML (and JS) static files
   * socket.io to count the connections from the clients.
 
 
-* For the FrontEnd:
+* For the front-end:
   * Handlebars to use a simple template system that gets the data updated as the number of connections changes
   * socket.io to connect the client to the server, and to get instant messages from the server when a new client 
 dis/connects
+  * Bootstrap for a very simple look & feel
 
 
 * For development
