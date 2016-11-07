@@ -31,8 +31,6 @@ The following assumes you have all of the recommended tools listed above install
 
 #### 3. Run tests:
 
-    $ Not added yet, will do tomorrow :)
-    $ npm install -g mocha
     $ npm test
 
 #### 4. Run the server:

@@ -2,6 +2,9 @@ angular.module('taroApp').controller('mainController',
 	["$rootScope", "$scope", "socket", "userProfile", 
 	function($rootScope, $scope, socket, userProfile){
 
+		$scope.posts = [];
+		$scope.newPost = { created_by:userProfile.name, text:""};
+
 		var isAuth = userProfile.$isAuthenticated();
 		var socIntance = socket.isInitialized()
 
@@ -18,16 +21,25 @@ angular.module('taroApp').controller('mainController',
 
 			socket.on('ip:added', function (data) {
 				console.log(data);
-				$scope.ips[data.ip] = true;
+				$scope.ips[data.ip] = data.username;
 			});
 
-			// add a message to the conversation when a user disconnects or leaves the room
 			socket.on('ip:removed', function (data) {
 				console.log(data);
 				delete $scope.ips[data.ip]
 			});
 
-			socket.emit('hello');
+			socket.on('new:post', function (data) {
+				console.log(data);
+				$scope.posts.unshift(data);
+			});
+
 		}
+
+		$scope.post = function() {
+			socket.emit('new:post', $scope.newPost);
+			$scope.posts.unshift($scope.newPost);
+			$scope.newPost = { created_by:userProfile.name, text:""};
+		};
 	}
 ]);

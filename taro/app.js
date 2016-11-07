@@ -9,8 +9,19 @@ var passport = require('passport');
 var passportSocketIo = require("passport.socketio");
 var models = require('./models/models.js');
 var initPassport = require('./passport-init')(passport);
+var config = require('./_config');
 var mongoose = require('mongoose'); 
-mongoose.connect('mongodb://localhost/db-taro');
+
+var app = express();
+
+mongoose.connect(config.mongoURI[app.settings.env], function(err, res) {
+    if(err) {
+        console.log('Error connecting to the database. ' + err);
+    } else {
+        console.log('Connected to Database: ' + config.mongoURI[app.settings.env]);
+    }
+});
+
 var connectMongo = require('connect-mongo')(session);
 var sessionStore = new connectMongo({
         mongooseConnection: mongoose.connection,
@@ -21,7 +32,7 @@ var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
 var ipsockets = require('./routes/ipsockets.js');
 
-var app = express();
+
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 io.on('connection', ipsockets);

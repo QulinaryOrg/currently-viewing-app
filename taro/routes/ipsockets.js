@@ -5,7 +5,7 @@ module.exports = function (socket) {
     var user = socket.request.user;
 
     var ip = socket.handshake.address;
-    IPS[ip] = true;
+    IPS[ip] = user.username;
 
     // when new user joins send him the ip list
     socket.emit('init', {
@@ -16,6 +16,12 @@ module.exports = function (socket) {
     socket.broadcast.emit('ip:added', {
         ip: ip,
         ips: IPS
+    });
+
+    //on new:post
+    socket.on('new:post', function (res) {
+        console.log("New post...");
+        socket.broadcast.emit('new:post', res);
     });
 
     // when user disconnects.
