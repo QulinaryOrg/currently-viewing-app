@@ -6,6 +6,8 @@ var app = express();
 
 // Load DB Config file
 var db = require('./config/db');
+// Prevent mpromise (mongoose's default promise library) is deprecated warning
+mongoose.Promise = global.Promise;
 // Connect to MongoDB
 mongoose.connect(db.url); 
 
@@ -15,8 +17,8 @@ app.use(express.static('public'));
 // Configure routes
 require('./app/routes')(app);
 
-// Explicitly listen on 127.0.0.1 so that when 
+// Explicitly listen on 0.0.0.0 so that when 
 // running from localhost we get 127.0.0.1 as the IP.
-app.listen(3000, '127.0.0.1', function () {
-    console.log('currently-viewing-app listening on port 127.0.0.1:3000!');
+app.listen(3000, '0.0.0.0', function () {
+    console.log('currently-viewing-app listening on IP & port 127.0.0.1:3000!');
 });
