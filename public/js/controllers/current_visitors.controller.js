@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('currentlyViewing.controllers', ['ngRoute'])
+angular.module('currentlyViewing.current_visitors', ['ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
             templateUrl: '/templates/current_visitors.template.html',
