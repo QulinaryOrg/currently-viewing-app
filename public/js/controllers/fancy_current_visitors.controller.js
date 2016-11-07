@@ -57,19 +57,17 @@ function FancyCurrentVisitorsController($q, $window, visitorService, geoipServic
 
     function initMap() {
         NgMap.getMap().then(function (map) {
-            console.log(map.getCenter());
             map.markers = [];
-            console.log('markers', map.markers);
-
             angular.forEach(vm.visitors, function (visitor) {
-                var marker = new google.maps.Marker({
-                    position: { lat: visitor.latitude, lng: visitor.longitude },
-                    map: map,
-                    title: visitor.ip
-                });
-                map.markers.push(marker);
+                if (visitor.latitude && visitor.longitude) {
+                    var marker = new google.maps.Marker({
+                        position: { lat: visitor.latitude, lng: visitor.longitude },
+                        map: map,
+                        title: visitor.ip
+                    });
+                    map.markers.push(marker);
+                }
             });
-            console.log('shapes', map.shapes);
         });
     }
 } 
