@@ -1,0 +1,23 @@
+{
+  "name": "qulinary",
+  "version": "1.0.0",
+  "description": "Implementation of https://github.com/QulinaryOrg/currently-viewing-app app",
+  "main": "src/server/app.js",
+  "author": "Rafael Horowitz",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "^3.0.2",
+    "express": "^4.10.2",
+    "socket.io": "^1.0.6"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-handlebars": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-filerev": "^2.3.1",
+    "grunt-jscs": "^3.0.1",
+    "jshint-stylish": "^2.2.1"
+  }
+}
