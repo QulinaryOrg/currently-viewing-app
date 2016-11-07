@@ -33,7 +33,7 @@ To see a Google map of current visitor locations click the
 
 Example (from running instance at [http://tmpcvapp.elijahlofgren.com:3000/#!/fancy](http://tmpcvapp.elijahlofgren.com:3000/#!/fancy)):
 
-![Settings Window](https://raw.github.com/elijahlofgren/currently-viewing-app/master/Screenshot.PNG)
+![Example of Google Map showing two locations](https://raw.github.com/elijahlofgren/currently-viewing-app/master/Screenshot.PNG)
 
 ## Requirements
 
