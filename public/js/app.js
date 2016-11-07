@@ -2,6 +2,7 @@
 
 angular.module('currentlyViewing', [
     'ngRoute',
+    'ngMap',
     'VisitorService',
     'GeoipService',
     'currentlyViewing.current_visitors',

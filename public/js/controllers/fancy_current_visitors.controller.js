@@ -10,8 +10,8 @@ angular.module('currentlyViewing.fancy_current_visitors', ['ngRoute'])
     }])
     .controller('FancyCurrentVisitorsController', FancyCurrentVisitorsController);
 
-FancyCurrentVisitorsController.$inject = ['$q', 'visitorService', 'geoipService'];
-function FancyCurrentVisitorsController($q, visitorService, geoipService) {
+FancyCurrentVisitorsController.$inject = ['$q', '$window', 'visitorService', 'geoipService', 'NgMap'];
+function FancyCurrentVisitorsController($q, $window, visitorService, geoipService, NgMap) {
     var vm = this;
 
     vm.visitors = [];
@@ -39,7 +39,7 @@ function FancyCurrentVisitorsController($q, visitorService, geoipService) {
 
     function loadVisitors() {
         return visitorService.getAll().then(function (response) {
-             // Clear promises array before we start re-populating it.
+            // Clear promises array before we start re-populating it.
             vm.locationPromises.length = 0;
             angular.forEach(response.data, function (visitor) {
                 vm.locationPromises.push(geoipService.ipToGeo(visitor.ip));
@@ -47,14 +47,29 @@ function FancyCurrentVisitorsController($q, visitorService, geoipService) {
             $q.all(vm.locationPromises).then(function (responsesArray) {
                 // Clear visitors array before we start re-populating it.
                 vm.visitors.length = 0;
-                console.log('vm.visitors =');
-                console.log(vm.visitors);
                 angular.forEach(responsesArray, function (response) {
                     vm.visitors.push(response.data);
                 });
-                console.log('now vm.visitors =');
-                console.log(vm.visitors);
+                initMap();
             });
+        });
+    }
+
+    function initMap() {
+        NgMap.getMap().then(function (map) {
+            console.log(map.getCenter());
+            map.markers = [];
+            console.log('markers', map.markers);
+
+            angular.forEach(vm.visitors, function (visitor) {
+                var marker = new google.maps.Marker({
+                    position: { lat: visitor.latitude, lng: visitor.longitude },
+                    map: map,
+                    title: visitor.ip
+                });
+                map.markers.push(marker);
+            });
+            console.log('shapes', map.shapes);
         });
     }
 } 
