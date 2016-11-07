@@ -52,10 +52,10 @@ The following assumes you have all of the recommended tools listed above install
 
 
 ### References:
-https://github.com/QulinaryOrg/currently-viewing-app
-http://stackoverflow.com/questions/16392260/which-websocket-library-to-use-with-node-js
-http://stackoverflow.com/a/29797145/818731
-https://github.com/jfromaniello/passport.socketio
+1.https://github.com/QulinaryOrg/currently-viewing-app
+2.http://stackoverflow.com/questions/16392260/which-websocket-library-to-use-with-node-js
+3.http://stackoverflow.com/a/29797145/818731
+4.https://github.com/jfromaniello/passport.socketio
 
 
 
