@@ -6,7 +6,7 @@ angular.module('taroApp').factory('socket', function ($rootScope, $cookies) {
         },
         connect: function () {
             socket = io.connect('/');
-            console.log("Connection established")
+            console.log("Connection established");
         },
         disconnect: function () {
             socket.disconnect();

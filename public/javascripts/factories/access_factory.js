@@ -12,26 +12,20 @@ angular.module('taroApp').factory("Access", ["$q", "UserProfile", function ($q, 
         FORBIDDEN: 403,
 
         isAnonymous: function () {
-            console.log("Returning unauthorized")
             return UserProfile.then(function (userProfile) {
                 if (userProfile.$isAnonymous()) {
-                    console.log("Returning unauthorized")
                     return Access.OK;
                 } else {
-                    console.log("Returning unauthorized")
                     return $q.reject(Access.FORBIDDEN);
                 }
             });
         },
 
         isAuthenticated: function () {
-            console.log("Returning unauthorized")
             return UserProfile.then(function (userProfile) {
                 if (userProfile.$isAuthenticated()) {
-                    console.log("Returning unauthorized")
                     return Access.OK;
                 } else {
-                    console.log("Returning unauthorized")
                     return $q.reject(Access.UNAUTHORIZED);
                 }
             });

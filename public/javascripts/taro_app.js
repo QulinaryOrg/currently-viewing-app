@@ -10,6 +10,7 @@ app = angular.module('taroApp', ['ui.router', 'ngCookies']).run(function($rootSc
 			$state.go("forbidden");
 		}
 	});
+
 });
 
 

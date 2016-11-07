@@ -1,5 +1,7 @@
 angular.module('taroApp').config(function($stateProvider, $urlRouterProvider) {
-        
+    
+    $urlRouterProvider.otherwise('/');
+       
     $stateProvider
         
         .state("forbidden", {

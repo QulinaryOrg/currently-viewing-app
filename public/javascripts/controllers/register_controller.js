@@ -5,16 +5,21 @@ angular.module('taroApp').controller('registerController',
 		$scope.error_message = '';
 
 		$scope.register = function(){
-			Auth.register($scope.user).success(function(data){
-				if(data.state == 'success'){
+			var state;
+			Auth.register($scope.user).then(function(response){
+				console.log(response);
+				var data = response.data;
+				state = data.state;
+				if(state == 'success'){
 					return userProfile.$refresh();
 				}
 				else{
 					$scope.error_message = data.message;
 				}
 			}).then(function () {
-		      	// UserProfile is refreshed, redirect user somewhere
-		      	$state.go("home");
+		      	if(state == 'success'){
+		      		$state.go("home");
+		      	}
 		    });
 		};
 	}

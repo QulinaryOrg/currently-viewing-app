@@ -4,18 +4,25 @@ angular.module('taroApp').controller('loginController',
 		
 		$scope.user = {username: '', password: ''};
 		$scope.error_message = '';
-		console.log($scope.user)
+		
 		$scope.login = function(){
-			Auth.signIn($scope.user).success(function(data){
-				if(data.state == 'success'){
+			var state;
+			Auth.signIn($scope.user).then(function(response){
+				console.log(response);
+				var data = response.data;
+				state = data.state;
+				if(state == 'success'){
+					console.log("Success called");
       				return userProfile.$refresh();
 				}
 				else{
 					$scope.error_message = data.message;
 				}
 		    }).then(function () {
-		      	// UserProfile is refreshed, redirect user somewhere
-		      	$state.go("home");
+		    	console.log("calling then...")
+		      	if(state == 'success'){
+		      		$state.go("home");
+		      	}
 		    });
 		};
 	}
