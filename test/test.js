@@ -15,8 +15,10 @@ describe("Posts api ", function() {
 	User.collection.drop();
 	Post.collection.drop();
 
+	var newUser;
+
 	beforeEach(function(done){
-		var newUser = new User({
+		newUser = new User({
 			username: 'Waseem',
 			password: utils.createHash('password')
 		});
@@ -52,6 +54,18 @@ describe("Posts api ", function() {
 				res.should.have.status(200);
 				res.should.be.json;
 				res.body.should.be.a('array');
+				done();
+			});
+	});
+
+	it('should fail the authentication on NEW post on /api/posts POST', function(done) {
+		chai.request(server)
+			.post('/api/posts')
+			.send({created_by: newUser._id, text: 'test'})
+			.end(function(err, res){
+				console.log(res.body)
+				res.should.have.status(403);
+				res.body.should.be.a('object');
 				done();
 			});
 	});

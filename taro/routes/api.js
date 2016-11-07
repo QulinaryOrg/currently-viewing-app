@@ -5,12 +5,13 @@ var Post = mongoose.model('Post');
 
 //Used for routes that must be authenticated.
 router.use('/posts', function(req, res, next) {
+
     //allow all get request methods
     if(req.method === "GET"){
         return next();
     }
     if (!req.isAuthenticated()){
-        return res.redirect('/#login');
+        return res.send(403);
     }
     return next();
 });
