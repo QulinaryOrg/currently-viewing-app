@@ -39,6 +39,8 @@ function FancyCurrentVisitorsController($q, visitorService, geoipService) {
 
     function loadVisitors() {
         return visitorService.getAll().then(function (response) {
+             // Clear promises array before we start re-populating it.
+            vm.locationPromises.length = 0;
             angular.forEach(response.data, function (visitor) {
                 vm.locationPromises.push(geoipService.ipToGeo(visitor.ip));
             });
