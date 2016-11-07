@@ -25,7 +25,15 @@ node server.js
 ~~~~
 
 Then visit the following URL in your browser:
-[http://localhost:3000/](http://localhost:8080/)
+[http://localhost:3000/](http://localhost:3000)
+
+To see a Google map of current visitor locations click the
+"click here to view visitors with location" link or go to:
+[http://localhost:3000/#!/fancy](http://localhost:3000/#!/fancy)
+
+Example (from running instance at [http://tmpcvapp.elijahlofgren.com:3000/#!/fancy](http://tmpcvapp.elijahlofgren.com:3000/#!/fancy)):
+
+![Settings Window](https://raw.github.com/elijahlofgren/currently-viewing-app/master/Screenshot.PNG)
 
 ## Requirements
 
