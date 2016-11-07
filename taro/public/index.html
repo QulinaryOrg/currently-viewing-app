@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Taro</title>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="lib/angular.js"></script>
+		<script src="lib/angular-ui-router.min.js"></script>
+		<script src="lib/angular-cookies.min.js"></script>
+		<link rel="stylesheet" href="lib/bootstrap.min.css">
+		
+		<script src="dist/js/app.min.js"></script>
+		<link rel="stylesheet" href="dist/css/style.min.css">
+		
+	</head>
+	<body ng-app="taroApp">
+		<div id='main' class="container">
+			<!--header-->
+			<div ui-view="header"></div>
+			
+			<div ui-view="content"></div>
+			
+			<!--footer-->
+			<div ui-view="footer"></div>
+
+
+		</div>
+	</body>
+</html>

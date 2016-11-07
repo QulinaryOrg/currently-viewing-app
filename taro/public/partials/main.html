@@ -1,0 +1,29 @@
+<div class="clearfix">
+	
+	<div class="main col-lg-12 myHalfCol">
+	    <div class="col-lg-3">
+	    	<div id="post-stream">
+				<h4>Online users</h4>
+				<div class="post" ng-repeat="(ip, username) in ips" ng-class-odd="'odd'" ng-class-even="'even'"> 
+					<p>Username: {{username}}</p>
+					<p>IP: {{ip}}</p>
+				</div>
+			</div>
+	    </div>
+
+
+	    <div class="col-lg-9">
+
+	    	<div id="post-stream">
+				<h4>Start chating with others</h4>
+				<form ng-submit="post()">
+					<textarea required="" class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea>
+					<input class="btn submit-btn pull-right" type="submit" value="Send!">
+				</form>
+				<div class="post" ng-repeat="post in posts" ng-class-odd="'odd'" ng-class-even="'even'"> 
+					<p>{{post.created_by}} says {{post.text}}</p>
+				</div>
+			</div>
+	    </div>
+	</div>
+</div>

@@ -1,42 +1,61 @@
 # Currently Viewing App
 
-Shows a list of IP addresses viewing the page
+Shows a list of IP addresses viewing the page.
 
-## Requirements
+## Concept
+I have developed this application with MEAN stack. IP updates are push to clients through websockets. Socket.io library is selected based on the following stackoverflow analysis http://stackoverflow.com/questions/16392260/which-websocket-library-to-use-with-node-js . User has to register and login in order to see the list of online ips. Registeration is a simple process of adding only username and password. Information is saved permanently to Mongo DB. Instead of memory based sessions, I am saving sessions in MongoDB inorder to use them for websockets too. Passport and passport.socketio libs are used to implement authorization for both Restful Api and websockets.
 
-Create a single-page web app that:
+Frontend directory structure and authorization mechanism is mostly based on the following concept http://stackoverflow.com/a/29797145/818731
 
-1. **Shows the list of IP addresses currently viewing the app**
-2. **When a new user opens the app, dynamically adds their IP address to the list of IPs**
-3. **When a user closes the app, dynamically removes their IP address from the list of IPs**
 
-## Guidelines
+## Development Environment
 
-- You MUST include installation instructions so that it can be run locally be other developers.
-- You MUST publish your solution as a public github repository.
-- You MUST include, at a minimum, a javascript component on the client-side portion of the application; the rest of the solution is up to you.
-- You SHOULD make extensive use of any tools/frameworks/libraries/APIs you feel aid in completion of the tree requirements
-- You SHOULD follow best practices for the languages or tools that you select.
-- You SHOULD take as little or as long as you need (but don't overdo it). You will not be evaluated on time to complete.
-- You SHOULD ask questions if anything specified here is not clear in any way.
+At the bare minimum you'll need the following for your development environment:
 
-## Instructions
+1. [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+2. [Nodejs](https://docs.npmjs.com/getting-started/installing-node)
+3. [MongoDB](https://www.mongodb.com/download-center?jmp=homepage#community)
 
-1. Fork this github repository using your personal github account
-2. Create your solution. Test it. Test it again to be sure. Commit it and push to your personal repo.
-3. Submit a PR (pull request) back to this repository indicating your solution is ready for review
+### Local Setup
 
-## Evaluation Criteria
+The following assumes you have all of the recommended tools listed above installed.
 
-You will be evaluated with the following in mind:
+#### 1. Clone the project:
 
-- Does the solution satisfy the three requirements?
-- Does the solution run locally based on the provided instructions?
-- Does the solution make good use of tools/frameworks/libraries/APIs?
-- Does the implementation follow established best practices (design patterns, language usage, code formatting, etc..)?
-- Does the implementation use a sound design? What is the efficiency of the design? What happens at scale?
-- Does the solution go above/beyond from a visual/UI perspective? Is it nice to look at or does it make the eyes bleed?
+    $ git clone git@github.com/syedwaseemjan/currently-viewing-app.git
+    $ cd currently-viewing-app
 
-Happy coding!
+#### 2. Install dependencies:
+
+    $ npm install
+
+#### 2. Execute Gulp task to minify all css and javascript files:
+
+    $ ./node_modules/.bin/gulp gen-assets
+
+#### 3. Run tests:
+
+    $ npm test
+
+#### 4. Run the server:
+
+    $ npm start
+
+#### 5. Load the system in browser:
+
+    Visit http://127.0.0.1:3000
+
+
+### References:
+
+1. https://github.com/QulinaryOrg/currently-viewing-app
+
+2. http://stackoverflow.com/questions/16392260/which-websocket-library-to-use-with-node-js
+
+3. http://stackoverflow.com/a/29797145/818731
+
+4. https://github.com/jfromaniello/passport.socketio
+
+
 
 
