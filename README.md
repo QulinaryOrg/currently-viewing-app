@@ -8,6 +8,11 @@ Make sure you have MongoDB installed (install it if needed).
 Then edit config/db.js to point to the name a MongoDB that exists 
 (create one if needed).
 
+If you don't have bower installed, install it by running:
+~~~~
+npm install -g bower
+~~~~
+
 Check out the code and in the checkout directory run:
 ~~~~
 npm install
