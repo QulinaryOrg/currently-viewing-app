@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var Visitor = require('./app/models/visitor');
+var visitorService = require('./app/services/visitorService');
 
 
 // Load DB Config file
@@ -15,11 +15,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(db.url);
 
 // Delete any old records of current users
-Visitor.remove({}, function (err) {
-    if (err) {
-        console.error(err);
-    }
-});
+visitorService.deleteAll();
 
 app.use(express.static('public'));
 
@@ -32,21 +28,11 @@ io.on('connection', function (socket) {
     console.log('a user connected');
     // Getting socket.io client ip as per http://stackoverflow.com/a/38458477/908677
     var clientIpAddress = socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress;
-    var newVisitor = new Visitor({ ip: clientIpAddress });
-    newVisitor.save(function (err, doc) {
-        if (err) {
-            console.error(err);
-        }
-    });
-
+    visitorService.addVisitor(clientIpAddress);
     socket.on('disconnect', function () {
         console.log('user disconnected');
         var clientIpAddress = socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress;
-        Visitor.findOneAndRemove({ ip: clientIpAddress }, function (err) {
-            if (err) {
-                console.error(err);
-            }
-        });
+        visitorService.deleteVisitor(clientIpAddress);
         socket.broadcast.emit('user_left');
     });
 });
