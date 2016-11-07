@@ -29,6 +29,10 @@ The following assumes you have all of the recommended tools listed above install
 
     $ npm install
 
+#### 2. Execute Gulp task to minify all css and javascript files:
+
+    $ ./node_modules/.bin/gulp gen-assets
+
 #### 3. Run tests:
 
     $ npm test
