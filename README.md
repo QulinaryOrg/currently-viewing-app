@@ -5,8 +5,7 @@ Shows a list of IP addresses viewing the page
 ## Installation & DB Configuration
 
 Make sure you have MongoDB installed (install it if needed). 
-Then edit config/db.js to point to the name a MongoDB that exists 
-(create one if needed).
+If needed, edit the mongodb URL in config/db.js.
 
 If you don't have bower installed, install it by running:
 ~~~~
@@ -18,8 +17,6 @@ Check out the code and in the checkout directory run:
 npm install
 bower install
 ~~~~
-
-
 
 ## Running App 
 In the checkout directory run:

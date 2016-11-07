@@ -20,9 +20,12 @@ function CurrentVisitorsController($scope, $window, visitorService) {
     activate();
 
     function activate() {
-        addAndLoadVisitors();
+        loadVisitors();
+        // addAndLoadVisitors();
+        listenForNewUsers();
     }
-
+    
+    /*
     // Event Handlers
     // Detect leaving this application
     window.onbeforeunload = function (e) {
@@ -48,6 +51,18 @@ function CurrentVisitorsController($scope, $window, visitorService) {
 
     function deleteCurrentVisitor() {
         return visitorService.deleteVisitor(vm.currentVisitor._id);
+    }*/
+
+    function listenForNewUsers() {
+        var socket = io();
+        socket.on('new_user_connected', function (msg) {
+            console.log('time to reload! Got another user!');
+            loadVisitors();
+        });
+        socket.on('user_left', function (msg) {
+            console.log('time to reload! Lost a user!');
+            loadVisitors();
+        });
     }
 
     function loadVisitors() {

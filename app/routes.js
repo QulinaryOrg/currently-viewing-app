@@ -2,6 +2,7 @@ var Visitor = require('./models/visitor');
 
 module.exports = function (app) {
 
+    /*
     app.post('/api/visitors/delete/:recordId', function (req, res) {
         var recordId = req.params.recordId;
         Visitor.findByIdAndRemove(recordId, function (err) {
@@ -20,7 +21,7 @@ module.exports = function (app) {
             }
             res.json(doc);
         });
-    });
+    });*/
 
     app.get('/api/visitors', function (req, res) {
         Visitor.find(function (err, visitors) {
