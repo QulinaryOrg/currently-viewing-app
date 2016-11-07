@@ -11,7 +11,7 @@ var http = require('http').Server(app);
 function startServer(port, dir) {
   app.use(express.static(dir));
 
-  http.listen(port, function () {
+  http.listen(port,  '0.0.0.0', function () {
     console.log('listening on *:' + port);
   });
 }

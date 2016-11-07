@@ -11,8 +11,8 @@ Make sure you have installed (in your path):
 ### Run this by:
 1. `cd` to the the root directory of this project (where this README.md file is)
 2. `npm install` to install any missing package
-3. Then start the server by `node src/server/server.js`  (or `node src/server/server.js --port PORT`)
-4. Finally, open your browser in the selected port (default is 3000). 
+3. Then start the server by `node src/server/app.js`  (or `node src/server/app.js --port PORT`)
+4. Finally, open your browser in the selected ip/port (default is 3000). 
 
 As you connect from different IPs, you will see the list of currently connected IPs listed there.
 If you connect from same IP several times simultaneously, the IP is shown only once.
