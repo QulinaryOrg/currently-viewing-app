@@ -21,7 +21,7 @@ You must have Node installed to run this app.
 For simplicity, there is no database layer in this application. Instead, users are kept on a simple collection on the server memory. At scale, it would be advisable to handle storing users with a database.
 
 # Features
-This application has three main features:
+
 1. Displays a list of users currently viewing the application by their IPv6 Address.
 2. Updates the list in real-time when a new user joins by opening the app.
 3. Updates the list in real-time when a user leaves by closing the app.
