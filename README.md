@@ -2,11 +2,16 @@
 Currently Viewing is a simple app that allows users to see who is currently viewing the application by displaying a list of connected users by their IP address.
 
 # Tech Stack
-AngularJS
 Node
+
 Express
+
 WebSockets (Socket.io)
+
+AngularJS
+
 Twitter Bootstrap
+
 HTML/CSS
 
 # Setup
