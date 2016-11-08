@@ -1,42 +1,28 @@
-# Currently Viewing App
+# Currently Viewing
+Currently Viewing is a simple app that allows users to see who is currently viewing the application by displaying a list of connected users by their IP address.
 
-Shows a list of IP addresses viewing the page
+# Tech Stack
+AngularJS
+Node
+Express
+WebSockets (Socket.io)
+Twitter Bootstrap
+HTML/CSS
 
-## Requirements
+# Setup
+You must have Node installed to run this app.
 
-Create a single-page web app that:
+1. Clone this repository onto your computer.
+2. Run npm install to grab all necessary dependencies.
+3. Run npm start to start the server.
+4. Navigate to localhost:8080 to view the application.
 
-1. **Shows the list of IP addresses currently viewing the app**
-2. **When a new user opens the app, dynamically adds their IP address to the list of IPs**
-3. **When a user closes the app, dynamically removes their IP address from the list of IPs**
+# No Database
+For simplicity, there is no database layer in this application. Instead, users are kept on a simple collection on the server memory. At scale, it would be advisable to handle storing users with a database.
 
-## Guidelines
-
-- You MUST include installation instructions so that it can be run locally be other developers.
-- You MUST publish your solution as a public github repository.
-- You MUST include, at a minimum, a javascript component on the client-side portion of the application; the rest of the solution is up to you.
-- You SHOULD make extensive use of any tools/frameworks/libraries/APIs you feel aid in completion of the tree requirements
-- You SHOULD follow best practices for the languages or tools that you select.
-- You SHOULD take as little or as long as you need (but don't overdo it). You will not be evaluated on time to complete.
-- You SHOULD ask questions if anything specified here is not clear in any way.
-
-## Instructions
-
-1. Fork this github repository using your personal github account
-2. Create your solution. Test it. Test it again to be sure. Commit it and push to your personal repo.
-3. Submit a PR (pull request) back to this repository indicating your solution is ready for review
-
-## Evaluation Criteria
-
-You will be evaluated with the following in mind:
-
-- Does the solution satisfy the three requirements?
-- Does the solution run locally based on the provided instructions?
-- Does the solution make good use of tools/frameworks/libraries/APIs?
-- Does the implementation follow established best practices (design patterns, language usage, code formatting, etc..)?
-- Does the implementation use a sound design? What is the efficiency of the design? What happens at scale?
-- Does the solution go above/beyond from a visual/UI perspective? Is it nice to look at or does it make the eyes bleed?
-
-Happy coding!
-
-
+# Features
+This application has three main features:
+1. Displays a list of users currently viewing the application by their IPv6 Address.
+2. Updates the list in real-time when a new user joins by opening the app.
+3. Updates the list in real-time when a user leaves by closing the app.
+4. A single user opening the application multiple times (multiple instances of same IP) will not affect the list by adding duplicates, and only closing the first instance of the application will successfully remove them from the list.
