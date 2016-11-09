@@ -1,0 +1,21 @@
+{
+  "name": "Currently Viewing App",
+  "version": "1.0.0",
+  "description": "Currently viewing IP addresses app",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive"
+  },
+  "author": "Swapnil Marghade",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^13.0.0",
+    "inert": "^3.2.0",
+    "nconf": "^0.8.4",
+    "vision": "^4.1.0",
+    "socket.io":"^1.5.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}
