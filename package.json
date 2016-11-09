@@ -1,5 +1,5 @@
 {
-  "name": "Currently Viewing App",
+  "name": "CurrentlyViewingApp",
   "version": "1.0.0",
   "description": "Currently viewing IP addresses app",
   "main": "index.js",
