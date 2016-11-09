@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='ipApp'>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Currently Viewing App</title>
+</head>
+<body>
+<h3>Currently Viewing App Ip Addresses</h3>
+<div ng-controller='ipController'>
+    <ul class="list">
+        <li ng-repeat="ip in ipList">{{ip}}</li>
+    </ul>
+</div>
+</body>
+
+<script>
+    angular.module("ipApp", [])
+            .controller("ipController", function($scope) {
+                $scope.ipList = [];
+                var socket = io();
+                socket.on('list',function(list){
+                   $scope.ipList = list.list;
+                   $scope.$apply();
+                });
+            } );
+</script>
+<style> body { font-size: 1.0em; }</style>
+</html>

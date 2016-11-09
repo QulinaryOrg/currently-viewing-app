@@ -1,0 +1,13 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 35010
+  },
+  "project": {
+    "name": "currently-viewing-app"
+  },
+
+  "logs": {
+    "logLevel": "silly"
+  }
+}
