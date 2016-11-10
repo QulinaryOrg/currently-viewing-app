@@ -1,0 +1,23 @@
+{
+  "name": "currently-viewing-app",
+  "version": "1.0.0",
+  "description": "Code test submission - Llerone Lawrence",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lalawrence/currently-viewing-app.git"
+  },
+  "author": "Llerone Lawrence",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lalawrence/currently-viewing-app/issues"
+  },
+  "homepage": "https://github.com/lalawrence/currently-viewing-app",
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.5.1"
+  }
+}

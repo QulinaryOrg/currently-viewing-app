@@ -2,6 +2,15 @@
 
 Shows a list of IP addresses viewing the page
 
+## Installation Instructions - Llerone Lawrence
+
+1. **Clone repository locally**
+2. **Install dependencies: Run npm install**
+3. **Start the server locally: Run npm server.js**
+4. **View the application: Navigate to http://localhost:8080**
+
+**This application is also available publicly at: http://sample-env-1.akrsix3qtm.us-west-2.elasticbeanstalk.com until November 18th**
+
 ## Requirements
 
 Create a single-page web app that:
