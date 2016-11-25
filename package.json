@@ -1,0 +1,27 @@
+{
+  "name": "currently-viewing-app",
+  "version": "1.0.0",
+  "description": "Shows a list of IP addresses viewing the page",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FoysalOsmany/currently-viewing-app.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "AngularJS",
+    "Typescript",
+    "SocketIO"
+  ],
+  "author": "Foysal Osmany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FoysalOsmany/currently-viewing-app/issues"
+  },
+  "homepage": "https://github.com/FoysalOsmany/currently-viewing-app#readme"
+}
