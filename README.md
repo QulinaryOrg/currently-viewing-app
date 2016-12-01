@@ -1,3 +1,15 @@
+#Installation instructions
+
+
+git clone https://github.com/shyamchandranmec/currently-viewing-app.git
+
+cd currently-viewing-app
+
+npm install
+
+node app.js
+
+
 # Currently Viewing App
 
 Shows a list of IP addresses viewing the page
