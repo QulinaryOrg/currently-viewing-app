@@ -1,3 +1,15 @@
+# How to run
+
+1. **SERVER
+    npm install
+    npm start
+    
+2. **CLIENT
+    npm install
+    npm install -g angular-cli
+    ng serve
+
+
 # Currently Viewing App
 
 Shows a list of IP addresses viewing the page
