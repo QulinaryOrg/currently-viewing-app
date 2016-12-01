@@ -34,3 +34,6 @@ node_modules
 
 # IDE
 .idea
+
+# Build Dir
+build
