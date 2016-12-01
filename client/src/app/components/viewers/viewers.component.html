@@ -1,0 +1,24 @@
+<table class="mdl-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <thead>
+  <tr>
+    <th class="mdl-data-table__cell--non-numeric">IP</th>
+    <th>Country</th>
+    <th>City</th>
+    <th>Region</th>
+    <th>Lat/Lon</th>
+    <th>Last View</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let viewer of viewers">
+    <td class="mdl-data-table__cell--non-numeric">{{viewer.ip}}</td>
+    <td>{{viewer.country}}</td>
+    <td>{{viewer.city}}</td>
+    <td>{{viewer.region}}</td>
+    <td>{{viewer.loc}}</td>
+    <td>{{viewer.updatedAt | timeAgo}}</td>
+    <td><div class="circle {{viewer.online ? 'online' : 'offline'}}"></div></td>
+  </tr>
+  </tbody>
+</table>
