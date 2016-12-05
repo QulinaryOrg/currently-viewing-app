@@ -1,0 +1,18 @@
+{
+  "name": "client",
+  "description": "",
+  "main": "",
+  "authors": [
+    "FoysalOsmany <foysalo@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/FoysalOsmany/currently-viewing-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,15 @@
+.circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+}
+
+.online {
+  background-color: green !important;
+}
+
+
+.offline {
+  background-color: gray !important;
+}
+

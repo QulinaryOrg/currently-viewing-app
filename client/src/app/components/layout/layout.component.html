@@ -1,0 +1,39 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer"></div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item"><input type="checkbox" />Generate Data</li>
+      </ul>
+    </div>
+
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">
+      <a href="index.html">
+        <img src="https://lh3.googleusercontent.com/vfRsg_YQE_4WJvcZpdKbwcHuTwB3ymj2w0L3-mmb9i4X58AOu02-MPB1u19yGkBd0-w=w300" height="40px">
+        Viewer Tracker
+      </a>
+    </span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" [routerLink]="'/'">
+        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i> Dashboard
+      </a>
+      <a class="mdl-navigation__link" [routerLink]="'/viewers'">
+        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">list</i> Viewers
+      </a>
+      <a class="mdl-navigation__link" [routerLink]="'/map'">
+        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">map</i> Map
+      </a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
