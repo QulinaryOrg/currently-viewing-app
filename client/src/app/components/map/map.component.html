@@ -4,8 +4,8 @@
   }
 </style>
 
-<sebm-google-map [latitude]="23.7"
-                 [longitude]="90.4">
+<sebm-google-map [latitude]="centerLat"
+                 [longitude]="centerLon" [zoom]="2">
   <sebm-google-map-marker *ngFor="let data of mapData" [latitude]="data.lat" [longitude]="data.lon">
     <sebm-google-map-info-window>
       {{data.ip}}

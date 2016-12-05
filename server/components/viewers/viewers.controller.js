@@ -23,12 +23,10 @@ export const getViewers = (req, res, next) =>
  * @param next
  */
 export const saveViewer = (req, res, next) => {
-  console.log('ADD...', requestIp.getClientIp(req));
   return viewersService.addViewer(requestIp.getClientIp(req))
     .then(viewer => {
       io.emit('VIEWERS_UPDATE');
-      console.log(viewer[0]);
-      res.send(viewer[0]);
+      res.send(viewer);
     })
     .catch(e => {
       console.error(e);
@@ -44,7 +42,6 @@ export const saveViewer = (req, res, next) => {
  * @param next
  */
 export const viewerWentOffline = (req, res, next) => {
-  console.log('DISCONNECTED .....')
   return viewersService.getViewers({ip: requestIp.getClientIp(req)})
     .tap(v => console.log('DISCONNECT ......', v))
     .then(viewersService.setViewerToOffline)

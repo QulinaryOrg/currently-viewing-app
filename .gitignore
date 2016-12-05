@@ -37,3 +37,6 @@ node_modules
 
 # Build Dir
 build
+
+# Dist Dir
+dist

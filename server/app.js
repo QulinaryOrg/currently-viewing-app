@@ -7,8 +7,11 @@ import compression from 'compression';
 import bodyParser from 'body-parser';
 import http from 'http';
 import morgan from 'morgan';
+import * as requestIp from "request-ip";
 import * as config from './config';
 import {router} from './components/viewers/viewers.route';
+import {ViewersService} from "./components/viewers/viewers.service";
+const viewersService = new ViewersService();
 
 const app = express();
 
@@ -54,6 +57,22 @@ io.sockets.on('connection', function (socket) {
 
 io.sockets.on('disconnect', function (socket) {
   console.log('A client is disconnected!');
+});
+
+io.on('connection', (socket) => {
+  viewersService.addViewer(requestIp.getClientIp(socket.request))
+    .then(() => {
+      io.emit('VIEWERS_UPDATE');
+    });
+
+  socket.on('disconnect', () => {
+    viewersService.getViewers({ip: requestIp.getClientIp(socket.request)})
+      .then(viewersService.setViewerToOffline)
+      .then(viewer => {
+        io.emit('VIEWERS_UPDATE');
+        res.send(viewer);
+      })
+  });
 });
 
 var clients = io.sockets.clients();

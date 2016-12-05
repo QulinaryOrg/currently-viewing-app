@@ -25,6 +25,7 @@ export class AppComponent implements OnDestroy {
   }
 
   socketConnect = () => {
+    console.log('Socket connected ....');
     this.viewersService.viewerOnline()
       .map(res => res.json())
       .subscribe(
@@ -36,6 +37,7 @@ export class AppComponent implements OnDestroy {
   };
 
   socketDisconnect = () => {
+    console.log('Socket Disconnected ....');
     this.viewersService.vieweerOffline()
       .map(res => res.json())
       .subscribe(

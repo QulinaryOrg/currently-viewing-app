@@ -30,6 +30,7 @@ export class ViewersService {
   }
 
   setViewerToOnline(viewers) {
+    console.log('set viewer to online');
     return Q.all(viewers.map((viewer) => {
       viewer.online = true;
       return Q.ninvoke(viewer, 'save');
@@ -37,6 +38,7 @@ export class ViewersService {
   }
 
   setViewerToOffline(viewers) {
+    console.log('set viewer to offline');
     return Q.all(viewers.map((viewer) => {
       viewer.online = false;
 
@@ -45,12 +47,13 @@ export class ViewersService {
   }
 
   saveViewer = (ip, geo, online = true) => {
+    console.log('save viewer');
     Q.ninvoke(Viewers, 'create', {
       ip: ip,
-      country: geo.country,
-      region: geo.region,
-      city: geo.city,
-      loc: geo.ll
+      country: geo ? geo.country : '',
+      region: geo ? geo.region : '',
+      city: geo ? geo.city : '',
+      loc: geo ? geo.ll : ''
     })
   }
 
