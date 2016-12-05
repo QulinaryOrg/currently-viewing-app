@@ -1,13 +1,22 @@
 # How to run
 
-1. **SERVER
-    npm install
-    npm start
+## Setup Server App
+1. `npm install`
+2. npm start
     
-2. **CLIENT
-    npm install
-    npm install -g angular-cli
-    ng serve
+## Setup Proxy Server or Host
+1. `npm install ngrok -g`
+2. `ngrok http 3000`
+3. check the terminal and get the http forwarding address
+4. cd into /client/src directory edit config.ts and change the host to the forwarding address
+    
+## Setup Client App    
+1. cd into /client
+2. `npm install`
+3. `npm install -g angular-cli`
+4. `ng serve`
+5. visit the web in http://localhost:4200
+6. or browse the website from any device using `ngrok http 4200` and browse the website in the forwarding address 
 
 
 # Currently Viewing App
