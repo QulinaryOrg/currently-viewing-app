@@ -1,3 +1,37 @@
+## Description
+
+The project has been created by [loopback-redux-react-boilerplate](https://github.com/tngan/loopback-redux-react-boilerplate)
+
+Used tools:
+
+- Loopback
+- Socket.io
+- React
+- Redux
+- Webpack
+
+Total time: 1hr
+
+## Instalation instructions
+
+```
+npm install
+node .
+```
+
+Then in browser open: [http://0.0.0.0:3000/](http://0.0.0.0:3000/)
+
+How it works:
+
+Browser sends connection request when user opens browser (/client/index.js)
+Then server receives connection event and go thru loop of all connected clients (/server/server.js)
+And server fires event with all connected clients to all connected clients
+Frontend receives this event (/server/server.js)
+And updates current state with list of IP addresses
+
+
+# ORIGINAL README
+
 # Currently Viewing App
 
 Shows a list of IP addresses viewing the page
