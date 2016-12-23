@@ -36,13 +36,16 @@ app.start = function () {
 if (require.main === module) {
   app.io = require('socket.io')(app.start())
 
+  // Client connects
   app.io.on('connection', function (socket) {
     let connectedIp = []
 
+    // On client connection the system generates list of all connected clients
     for (let socket in app.io.sockets.clients().connected) {
       connectedIp.push(app.io.sockets.clients().connected[socket].conn.remoteAddress)
     }
 
+    // Then socket emit event with list of all connected clients
     app.io.sockets.emit('connectedIPs', connectedIp)
   })
 }

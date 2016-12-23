@@ -11,10 +11,12 @@ class SmartComponent extends Component {
   }
 
   onSocketMessage (message) {
+    // Update app state when new list of IP Addresses received
     this.props.dispatch(setIPList(message))
   }
 
   render () {
+    // Generate list of connected clients
     const connecteIPsList = this.props.ipList ? this.props.ipList.map(ip => (<div key={ip}>{ip}</div>)) : []
 
     return (
