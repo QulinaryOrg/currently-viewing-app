@@ -5,10 +5,12 @@
 	</head>
 	<body>
 		{{> header }}
-		<h2> List of IP Addresses viewing this site </h2>
-		{{ #client_records }}
-		  <p>{{ ip_address }}</p>
-		{{ /client_records }}
+		<div class="container">
+			<h2> List of IP Addresses viewing this site </h2>
+			{{ #client_records }}
+			  <p>{{ ip_address }}</p>
+			{{ /client_records }}
+		</div>
 		{{> footer }}
 	</body>
 </html>
