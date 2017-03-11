@@ -3,7 +3,10 @@ var app = express()
 var config = require('./config.js')
 var db_conn = require('./db.js')
 
-app.set('view engine', 'ejs')
+var mustacheExpress = require('mustache-express');
+
+app.engine('mustache', mustacheExpress());
+app.set('view engine', 'mustache');
 
 app.get('/', function (req, res) {
         var client_ip = get_client_ip( req )
