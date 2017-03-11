@@ -3,8 +3,9 @@ var app = express()
 var config = require('./config.js')
 var db_conn = require('./db.js')
 
+app.set('view engine', 'ejs')
+
 app.get('/', function (req, res) {
-        console.log("came here");
         var client_ip = get_client_ip( req )
         db_conn.add_client_ip( client_ip )
 
@@ -12,7 +13,7 @@ app.get('/', function (req, res) {
             if (err) 
                 throw err
             else
-                res.send(result);
+                res.render('index', {'client_records' : result })            
         })
         
         req.on('close', function(){
