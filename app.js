@@ -1,36 +1,36 @@
 var express = require('express')
 var app = express()
-var http = require('http')
 var config = require('./config.js')
 var db_conn = require('./db.js')
-var server = http.createServer(app);
 
 app.get('/', function (req, res) {
-        var client_address = get_client_address( req )
-        var currently_viewing = []
-        db_conn.query( 'INSERT INTO user_ip_address(ip_address) VALUES ("' + client_address + '") ' )
-        db_conn.query( 'SELECT ip_address FROM user_ip_address', function (err, rows, fields) { 
-            for (var i = rows.length - 1; i >= 0; i--) {
-                rows[i]
-            }
+        console.log("came here");
+        var client_ip = get_client_ip( req )
+        db_conn.add_client_ip( client_ip )
+
+        db_conn.query( 'SELECT ip_address FROM ' + config.table_name, function (err, result) {
+            if (err) 
+                throw err
+            else
+                res.send(result);
+        })
+        
+        req.on('close', function(){
+            console.log('Client closed the connection');
         });
-        res.send('Hello World!')
 })
 
 db_conn.invoke_database( config, db_conn )
 
-function get_client_address(request){
-    var ip = request.connection.remoteAddress
-    ip = ip.split(':').pop()
-    return ip == '1' ? '127.0.0.1': ip;
+function get_client_ip(req){
+    var client_ip = req.connection.remoteAddress
+    client_ip = client_ip.split(':').pop()
+    return client_ip == '1' ? '127.0.0.1': client_ip;
 }
 
-app.on('close', function (parent) {
-  console.log('Admin UNMounted');
+app.listen( config.application_port, function(err) {
+    if(err) {
+        console.log('Error binding this port. Please try with different port');
+        throw err
+    } 
 });
-
-server.on('disconnect', function() {
-  console.log(' Stopping ...');
-});
-
-app.listen(3000);
