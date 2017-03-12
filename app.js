@@ -2,6 +2,7 @@ var express = require('express')
 var app = express()
 var config = require('./config.js')
 var db_conn = require('./db.js')
+var Cookies = require('cookies');
 
 var mustacheExpress = require('mustache-express');
 
@@ -9,8 +10,13 @@ app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 
 app.get('/', function (req, res) {
-        var client_ip = get_client_ip( req )
-        db_conn.add_client_ip( client_ip )
+        var cookies = new Cookies(req, res)
+        var client_ip = cookies.get('client_ip')
+        if( typeof client_ip === 'undefined' ) {
+            client_ip = get_client_ip( req )
+            db_conn.add_client_ip( client_ip )
+            cookies.set( 'client_ip', client_ip );
+        }
 
         db_conn.query( 'SELECT ip_address FROM ' + config.table_name, function (err, result) {
             if (err) 
