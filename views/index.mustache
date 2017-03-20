@@ -8,7 +8,10 @@
 		<div class="container">
 			<h2> List of IP Addresses viewing this site </h2>
 			{{ #client_records }}
-			  <p>{{ ip_address }}</p>
+				<p>
+					<b>IP :</b> <span> {{ ip_address }} </span><br/>
+					<b>User Agent:</b> <span> {{ user_agent }} </span>
+				</p>
 			{{ /client_records }}
 		</div>
 		{{> footer }}

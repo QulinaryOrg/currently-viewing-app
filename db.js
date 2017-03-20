@@ -13,11 +13,11 @@ connection.invoke_database = function() {
     })
     connection.query( 'CREATE DATABASE IF NOT EXISTS ' + config.db_name, function (err, rows, fields) { })
     connection.query( 'USE ' + config.db_name, function (err, rows, fields) { })
-    connection.query( 'CREATE TABLE IF NOT EXISTS ' + config.table_name + ' (id int(11) auto_increment primary key, ip_address varchar(15) )', function (err, rows, fields) { })
+    connection.query( 'CREATE TABLE IF NOT EXISTS ' + config.table_name + ' (id int(11) auto_increment primary key, ip_address VARCHAR(15), user_agent VARCHAR(100) )', function (err, rows, fields) { })
 }
 
-connection.add_client_ip = function( client_ip, cookies ) {
-	connection.query( 'INSERT INTO ' + config.table_name + ' (ip_address) VALUES ("' + client_ip + '") ', function(err, response) {
+connection.add_client_ip = function( client, cookies ) {
+	connection.query( 'INSERT INTO ' + config.table_name + '(ip_address,user_agent) VALUES ("' + client.client_ip + '", "' + client.user_agent + '") ', function(err, response) {
             if (err)
             	throw err
             else
