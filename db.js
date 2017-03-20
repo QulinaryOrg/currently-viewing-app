@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
             password: config.db_pass
         })
 
-connection.invoke_database = function( config, connection ) {
+connection.invoke_database = function() {
     connection.connect(function(err){
     	if (err) throw err
     })
@@ -16,14 +16,28 @@ connection.invoke_database = function( config, connection ) {
     connection.query( 'CREATE TABLE IF NOT EXISTS ' + config.table_name + ' (id int(11) auto_increment primary key, ip_address varchar(15) )', function (err, rows, fields) { })
 }
 
-connection.add_client_ip = function( client_ip ) {
-	connection.query( 'INSERT INTO ' + config.table_name + ' (ip_address) VALUES ("' + client_ip + '") ', function(err) {
-            if (err) throw err
+connection.add_client_ip = function( client_ip, cookies ) {
+	connection.query( 'INSERT INTO ' + config.table_name + ' (ip_address) VALUES ("' + client_ip + '") ', function(err, response) {
+            if (err)
+            	throw err
+            else
+            	cookies.set( 'client_id', response.insertId );
+        })
+}
+
+connection.delete_client_ip = function( client_id, cookies ) {
+	connection.query( 'DELETE FROM ' + config.table_name + ' WHERE id = "' + client_id + '"', function(err, response) {
+            if (err)
+            	throw err
+            else
+            	cookies.set( 'client_id', null );
         })
 }
 
 connection.get_current_viewers = function() {
 	
 }
+
+connection.invoke_database()
 
 module.exports = connection
