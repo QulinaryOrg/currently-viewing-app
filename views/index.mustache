@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Currently Viewing App</title>
+	</head>
+	<body>
+		{{> header }}
+		<div class="container">
+			<h2> List of IP Addresses viewing this site </h2>
+			{{ #client_records }}
+				<p>
+					<b>IP :</b> <span> {{ ip_address }} </span><br/>
+					<b>User Agent:</b> <span> {{ user_agent }} </span>
+				</p>
+			{{ /client_records }}
+		</div>
+		{{> footer }}
+	</body>
+</html>
