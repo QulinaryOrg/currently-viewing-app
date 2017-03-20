@@ -1,5 +1,12 @@
 # Currently Viewing App
 
+# Instructions to run :
+
+* Set the appropriate Mysql username and password in config.js
+* Run `npm install` inside the root of this folder
+* Run `node app.js` to run the application.
+* Open 127.0.0.1:3000 in the browser to see the app.
+
 Shows a list of IP addresses viewing the page
 
 ## Requirements
