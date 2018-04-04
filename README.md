@@ -45,6 +45,8 @@ To run this application in your local development environment ensure that your s
 
 2. you have installed git in your system. Install from here if you have not
 
+
+
 - Clone the repository by issuing this command in your terminal: git clone https://github.com/bytenaija/currently-viewing-app.git
 
 Still in your terminal run the following commands:
