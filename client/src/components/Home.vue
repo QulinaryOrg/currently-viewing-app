@@ -1,9 +1,10 @@
 <template>
   <div class="container-fluid ">
     <header class="header">
-      <div class="overlay-content row">
+      <div class="overlay-content">
+        <img src="../../static/img/logo.png" class="img-responsive">
         <div class="col main-text">
-          <h1>Currently viewing App</h1>
+          <h1>Currently Viewing App</h1>
         </div>
       </div>
     </header>
@@ -33,12 +34,12 @@
         <hr />
         <div class="list">
           <li v-for="(viewer, index) in paginateViewers" :key="index" @click="showDetailModal=true; viewDetails(viewer._id)" >{{viewer.ip}}</li>
-          <h4 v-if="paginateViewers == 0">You are the only one online</h4>
+          <h4 v-if="ipAddresses.length == 0">You are the only one online</h4>
         </div>
         <div :class="[pageNumber ? 'display' : '', 'previous']" @click="prevPage">
           &lt;
         </div>
-        <div :class="[pageNumber >= pageCount ? '' : 'display', 'next']" @click="nextPage">
+        <div :class="[pageNumber < pageCount ? 'display' : '', 'next']" @click="nextPage">
           &gt;
         </div>
       </div>
@@ -52,8 +53,12 @@
         Browser <p> {{viewerDetails.browser}}</p>
       </b-modal>
     </section>
-    <footer class="fixed-bottom">
-      <p>We are here</p>
+    <footer class="fixed-bottom row">
+      <p class="col-md-4">&copy; Everistus Olumese - 2018</p>
+      <h3 class="col-md-4">Page : {{pageNumber + 1}} of {{ pageCount ? pageCount + 1 : 1 }}</h3>
+      <div class="col-md-4">
+        <div class="fb-like float-right" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+      </div>
     </footer>
   </div>
 </template>
@@ -104,7 +109,7 @@ export default {
         event.returnValue = "event seems to need to be set";
       }
       this.$socket.emit("deleteViewer", this.currentUser);
-      
+
       /* console.log("Called from somewhere");
       let url = `http://localhost:3000/api/delete/${this.currentUser}`;
 
@@ -202,6 +207,13 @@ header {
   background-size: cover;
 }
 
+.overlay-content img{
+  border-radius:50%;
+  display: block;
+  margin: 0rem auto;
+  width: 5rem;
+  height: 5rem;;
+}
 .content {
   margin-bottom: 20rem;
 }
@@ -220,6 +232,10 @@ li.ownIp {
   transition-delay: 0s;
   box-shadow: 0 0 2rem black;
   font-size: 200%;
+}
+
+footer h3{
+  text-align: center;
 }
 
 .previous,
@@ -340,7 +356,7 @@ footer {
 
 @media only screen and (min-width: 750px) {
   header {
-    min-height: 20rem;
+    min-height: 30rem;
     background: url("../../static/img/bay-beach.jpeg") no-repeat center center;
     background-size: cover;
   }
@@ -355,6 +371,12 @@ footer {
     background-color: rgba(0, 0, 0, 0.5);
   }
 
+.overlay-content img{
+   width: 10rem;
+  height: 10rem;
+  display: block;
+  margin: 0rem auto;
+}
   footer {
     max-height: 5rem;
     background-color: white;

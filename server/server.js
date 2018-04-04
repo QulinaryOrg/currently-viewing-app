@@ -12,7 +12,7 @@ const morgan = require("morgan")
 const cors = require('cors')
 io.set('log level', 2)
 io.on('connection', viewer.respond);
-  
+
 
 app.use(morgan("dev"));
 
@@ -22,13 +22,15 @@ app.use(cors())
 
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({
+    extended: true
+}));
 
-mongoose.connect(config.mongoDb, (err)=>{
-    if(err){
+mongoose.connect(config.mongoDb, (err) => {
+    if (err) {
         throw err;
         system.exit(0)
-    }else{
+    } else {
         console.log("Connected to database")
     }
 })
@@ -36,7 +38,6 @@ mongoose.connect(config.mongoDb, (err)=>{
 //app.post("/api/add", viewer.add);
 //app.delete("/api/delete/:id", viewer.deleteViewer);
 
-http.listen(config.port, ()=>{
-console.log("Successfully connected on port ", config.port);
+http.listen(config.port, () => {
+    console.log("Successfully connected on port ", config.port);
 })
-
