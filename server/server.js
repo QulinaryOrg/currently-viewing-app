@@ -1,14 +1,22 @@
 let express = require("express");
 const app = express();
 const mongoose = require("mongoose")
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+const viewer = require("./controllers/viewer");
 
 const config = require("./config/config")
-const viewer = require("./controllers/viewer")
+
 const morgan = require("morgan")
 
 const cors = require('cors')
+io.set('log level', 2)
+io.on('connection', viewer.respond);
+  
 
 app.use(morgan("dev"));
+
+
 
 app.use(cors())
 
@@ -25,10 +33,10 @@ mongoose.connect(config.mongoDb, (err)=>{
     }
 })
 
-app.post("/api/add", viewer.add);
-app.delete("/api/delete/:id", viewer.deleteViewer);
+//app.post("/api/add", viewer.add);
+//app.delete("/api/delete/:id", viewer.deleteViewer);
 
-app.listen(config.port, ()=>{
+http.listen(config.port, ()=>{
 console.log("Successfully connected on port ", config.port);
 })
 

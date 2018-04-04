@@ -9,6 +9,7 @@ let viewerSchema = new Schema({
     timeZone : String,
     latitude : String,
     longitude : String,
+    browser : String
 })
 
 module.exports = mongoose.model("Viewers", viewerSchema)

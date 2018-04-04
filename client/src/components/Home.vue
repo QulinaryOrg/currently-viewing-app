@@ -1,78 +1,69 @@
 <template>
   <div class="container-fluid ">
-  <header class="header">
-     <div class="overlay-content row">
+    <header class="header">
+      <div class="overlay-content row">
         <div class="col main-text">
           <h1>Currently viewing App</h1>
         </div>
-
       </div>
-  
-  </header>
-  <section class="content">
-    
-    <div class="own-info">
-         <h1>Your IP</h1>
+    </header>
+    <section class="content">
+      <div class="own-info">
+        <h1>Your IP</h1>
         <ul>
-             <li class="ownIp">{{userInfo.ip}}</li>
+          <li class="ownIp">{{userInfo.ip}}</li>
         </ul>
-
-    </div>
-
-    
-          <div class="online">
-            
-           
-          <h1>Online Viewers</h1>
-
-          <div class="paginate">
-      <h3>No of viewers per page</h3>
-      <select v-model="size" class="form-control">
-       
-        <option>5</option>
-        <option>10</option>
-        <option>20</option>
-        <option>50</option>
-      </select>
-    </div> 
-
-    <b-modal v-model="showDetailModal">
-      <h2>{{viewerDetails.ip}}</h2>
-      Country <p>{{viewerDetails.country}}</p>
-      Region <p>{{viewerDetails.region}}</p>
-      City <p>{{viewerDetails.city}}</p>
-      Time Zone <p>{{viewerDetails.timeZone}}</p>
-      <p>Latitude : {{viewerDetails.latitude}}, Longitude : {{viewerDetails.longitude}}</p>
-    </b-modal>
-          <p> Click to see more information about each viewer</p>
-          
-
-          <div class="list">
-            <li v-for="(viewer, index) in paginateViewers" :key="index" @click="showDetailModal=true; viewDetails(viewer._id)">{{viewer.ip}}</li>
+        <hr />
+      </div>
+      <div class="online">
+        <h1>Online Viewers</h1>
+        <div class="paginate row">
+          <div class="col-md-7">
+            <h3>No of viewers per page</h3>
+            <select v-model="size" class="form-control">
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+            </select>
           </div>
+          <h5 class="col-md-5">Total online : {{ipAddresses.length + 1}}</h5>
+        </div> 
+        <h5 > Click to see more information about each viewer</h5>
+        <hr />
+        <div class="list">
+          <li v-for="(viewer, index) in paginateViewers" :key="index" @click="showDetailModal=true; viewDetails(viewer._id)" >{{viewer.ip}}</li>
+          <h4 v-if="paginateViewers == 0">You are the only one online</h4>
+        </div>
         <div :class="[pageNumber ? 'display' : '', 'previous']" @click="prevPage">
-            &lt;
+          &lt;
         </div>
-
-         <div :class="[pageNumber >= pageCount ? '' : 'display', 'next']" @click="nextPage">
-            &gt;
+        <div :class="[pageNumber >= pageCount ? '' : 'display', 'next']" @click="nextPage">
+          &gt;
         </div>
-          </div>
-  </section>
-
-  <footer class="fixed-bottom">
-    <p>We are here</p>
-  </footer>
+      </div>
+      <b-modal v-model="showDetailModal">
+        <h2>{{viewerDetails.ip}}</h2>
+        Country <p>{{viewerDetails.country}}</p>
+        Region <p>{{viewerDetails.region}}</p>
+        City <p>{{viewerDetails.city}}</p>
+        Time Zone <p>{{viewerDetails.timeZone}}</p>
+        <p>Latitude : {{viewerDetails.latitude}}, Longitude : {{viewerDetails.longitude}}</p>
+        Browser <p> {{viewerDetails.browser}}</p>
+      </b-modal>
+    </section>
+    <footer class="fixed-bottom">
+      <p>We are here</p>
+    </footer>
   </div>
 </template>
 
 <script>
-//window.onbeforeunload = this.deleteViewer;
 global.jQuery = require("jquery");
 var $ = global.jQuery;
 window.$ = $;
 //console.log(this);
-const io = require("socket.io");
+
 const axios = require("axios");
 export default {
   name: "Home",
@@ -86,8 +77,6 @@ export default {
       pageNumber: 0,
       size: 5,
       viewerDetails: {},
-
-      socket: null
     };
   },
 
@@ -105,36 +94,46 @@ export default {
       this.viewerDetails = this.ipAddresses.filter(viewer => {
         return viewer._id === id;
       });
-
+      //set viewerdetails to the first element of the returned array
       this.viewerDetails = this.viewerDetails[0];
     },
 
     deleteViewer: function(event) {
+      //ie hack
       if (event) {
         event.returnValue = "event seems to need to be set";
       }
-
-      console.log("Called from somewhere");
+      this.$socket.emit("deleteViewer", this.currentUser);
+      
+      /* console.log("Called from somewhere");
       let url = `http://localhost:3000/api/delete/${this.currentUser}`;
 
       console.log(url);
       axios.delete(url, { data: null }).then(result => {
         return "Please click 'Stay on this Page' and we will give you candy";
-      });
-      return "Please click 'Stay on this Page' and we will give you candy";
+      });*/
     }
   },
 
-
-  created: function() {
-    this.socket = io.connect("http://localhost");
-    console.log(this.socket);
-    this.socket.on("viewer", function(data) {
+  sockets: {
+    viewer(data) {
       console.log(data);
-    });
+      if (data.id) {
+        this.currentUser = data.id;
+      }
+
+      this.ipAddresses = data.data.filter(viewer => {
+        return viewer._id != this.currentUser;
+      });
+    }
+  },
+  created: function() {
+    /* this.$socket.on("viewer", function(data) {
+      console.log(data);
+    }); */
     let self = this;
     $(window).bind("beforeunload", function() {
-      console.log("self", self);
+      // console.log("self", self);
       self.deleteViewer();
       return "Do you really want to close?";
     });
@@ -142,6 +141,8 @@ export default {
 
     $.getJSON("http://freegeoip.net/json/?callback=?", function(data) {
       if (data) {
+        let userAgent = window.navigator.userAgent;
+
         self.userInfo = {
           ip: data.ip,
           country: data.country_name,
@@ -149,7 +150,8 @@ export default {
           city: data.city,
           timeZone: data.time_zone,
           latitude: data.latitude,
-          longitude: data.longitude
+          longitude: data.longitude,
+          browser: userAgent
         };
 
         /* axios
@@ -164,7 +166,7 @@ export default {
             // console.log("Current User", self.currentUser);
           }); */
 
-        self.socket.emit("viewerData", { data: self.userInfo });
+        self.$socket.emit("viewerData", self.userInfo);
       }
     });
   },
