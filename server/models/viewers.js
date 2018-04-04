@@ -1,6 +1,7 @@
 let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
+//define the database schema
 let viewerSchema = new Schema({
     ip: {
         type: String,

@@ -33,6 +33,7 @@
         <h5 > Click to see more information about each viewer</h5>
         <hr />
         <div class="list">
+          <!--Iterate through the list and display Ip addresses -->
           <li v-for="(viewer, index) in paginateViewers" :key="index" @click="showDetailModal=true; viewDetails(viewer._id)" >{{viewer.ip}}</li>
           <h4 v-if="ipAddresses.length == 0">You are the only one online</h4>
         </div>
@@ -43,6 +44,8 @@
           &gt;
         </div>
       </div>
+
+      <!--Display the selected in a modal -->
       <b-modal v-model="showDetailModal">
         <h2>{{viewerDetails.ip}}</h2>
         Country <p>{{viewerDetails.country}}</p>
@@ -76,16 +79,17 @@ export default {
     return {
       //this stores the ip address of visitors currently on line
       ipAddresses: [],
-      userInfo: {},
+      userInfo: {}, //current user info
       showDetailModal: false,
       currentUser: "",
       pageNumber: 0,
       size: 5,
-      viewerDetails: {},
+      viewerDetails: {}, //deatils of selected viewer
     };
   },
 
   methods: {
+    //pagination methods
     nextPage: function() {
       this.pageNumber++;
     },
@@ -121,6 +125,7 @@ export default {
   },
 
   sockets: {
+    //recieve data from connected sockets
     viewer(data) {
       console.log(data);
       if (data.id) {
@@ -137,6 +142,7 @@ export default {
       console.log(data);
     }); */
     let self = this;
+
     $(window).bind("beforeunload", function() {
       // console.log("self", self);
       self.deleteViewer();
@@ -159,7 +165,9 @@ export default {
           browser: userAgent
         };
 
-        /* axios
+        /* 
+        //no longer neccessary. as we are using websockets 
+        axios
           .post("http://localhost:3000/api/add", self.userInfo)
           .then(result => {
             self.currentUser = result.data.id;
@@ -182,6 +190,7 @@ export default {
   },
 
   computed: {
+    //paginated computed properties
     pageCount: function() {
       let l = this.ipAddresses.length,
         s = parseInt(this.size);

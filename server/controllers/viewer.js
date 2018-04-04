@@ -1,26 +1,31 @@
+//import the viewers model
 const viewer = require("../models/viewers");
 
+//respond to sockets connection and data communication
 exports.respond = (socket) => {
     socket.on('viewerData', function (data) {
 
-        console.log(data);
+       // console.log(data);
+       //Save the data to the database.
         viewer.create(data)
             .then(result => {
                 let id = result._id;
-
+            //find all the currently connected viewers in the database
                 viewer.find({}).then(result => {
+            //send id and result to the connected socket
                     socket.emit('viewer', {
                         id,
                         data: result
 
                     })
+            //broadcast the data of connected users to all the connected sockets
                     socket.broadcast.emit('viewer', {
                         data: result
                     })
                 });
             });
     });
-
+    //delete viewers from database when the stop viewing the application
     socket.on('deleteViewer', function (id) {
         console.log(id);
         viewer.findByIdAndRemove(id, function (err, result) {
@@ -33,7 +38,10 @@ exports.respond = (socket) => {
         })
     });
 }
-/* exports.add = (req, res) => {
+
+/* 
+//no longer neccessary as we are using websockets
+exports.add = (req, res) => {
      viewer.create(req.body)
     .then(result=>{
         let id = result._id;
