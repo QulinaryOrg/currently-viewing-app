@@ -32,5 +32,6 @@ Still in your terminal run the following commands:
 Open another terminal and enter the following commands
 - cd client
 - npm install
+- If you changed the port on the server, ensure that you change the port on line 15 in main.js to the port you set on the server so that the socket can connect.
 - npm run dev
 

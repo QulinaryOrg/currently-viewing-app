@@ -12,6 +12,7 @@ import VueSocketio from 'vue-socket.io';
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
+//You may need to change the port on this line if you changed it in the server;
 Vue.use(VueSocketio, "http://localhost:3000");
 
 /* eslint-disable no-new */
