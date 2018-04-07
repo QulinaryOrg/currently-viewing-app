@@ -1,0 +1,24 @@
+# NodeJS App
+web:
+ build: server/
+ container_name: api-nodejs
+ ports:
+  - 8080:8080
+ volumes:
+    - ./server:/app
+    - /app/node_modules
+ links:
+    - mongodb
+ environment:
+    - MONGO_HOST=mongodb
+ tty: true
+
+
+# MongoDB
+mongodb:
+ image: mongo:3.4-jessie
+ container_name: api-mongodb
+ ports:
+  - 27017:27017
+ volumes:
+  - mongodb-data:/data/db
