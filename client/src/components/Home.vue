@@ -316,11 +316,13 @@ footer h3{
   width: 100%;
   float: right;
   cursor: pointer;
+  transform : skewX(20deg);
   transition: transform 500ms, background 500ms;
   transition-delay: 0s;
   box-shadow: 0 0 2rem black;
 }
 .list li:nth-child(odd) {
+  transform : skewX(-20deg);
   clear: both;
 }
 
@@ -446,7 +448,7 @@ footer {
   }
 
   .list li:hover {
-    transform: translateX(-20px);
+    transform: translateX(-20px)  skewX(0deg);
     background-color: aqua;
   }
 
@@ -455,7 +457,7 @@ footer {
   }
 
   .list li:nth-child(odd):hover {
-    transform: translateX(20px);
+    transform: translateX(20px)  skewX(0deg);
   }
 
   .list li:nth-child(even) {
