@@ -4,39 +4,42 @@ Shows a list of IP addresses viewing the page
 
 ## Requirements
 
-Create a single-page web app that:
+To run this application in your local development environment ensure that your system meets the following requirements:
 
-1. **Shows the list of IP addresses currently viewing the app**
-2. **When a new user opens the app, dynamically adds their IP address to the list of IPs**
-3. **When a user closes the app, dynamically removes their IP address from the list of IPs**
+1. Ensure you have internet with a good speed. The whole process and application will not work without internet.
 
-## Guidelines
+2. You have installed the latest version of node in your system. If you have not kindly download and install it from here : https://nodejs.org/en/
 
-- You MUST include installation instructions so that it can be run locally be other developers.
-- You MUST publish your solution as a public github repository.
-- You MUST include, at a minimum, a javascript component on the client-side portion of the application; the rest of the solution is up to you.
-- You SHOULD make extensive use of any tools/frameworks/libraries/APIs you feel aid in completion of the tree requirements
-- You SHOULD follow best practices for the languages or tools that you select.
-- You SHOULD take as little or as long as you need (but don't overdo it). You will not be evaluated on time to complete.
-- You SHOULD ask questions if anything specified here is not clear in any way.
-
-## Instructions
-
-1. Fork this github repository using your personal github account
-2. Create your solution. Test it. Test it again to be sure. Commit it and push to your personal repo.
-3. Submit a PR (pull request) back to this repository indicating your solution is ready for review
-
-## Evaluation Criteria
-
-You will be evaluated with the following in mind:
-
-- Does the solution satisfy the three requirements?
-- Does the solution run locally based on the provided instructions?
-- Does the solution make good use of tools/frameworks/libraries/APIs?
-- Does the implementation follow established best practices (design patterns, language usage, code formatting, etc..)?
-- Does the implementation use a sound design? What is the efficiency of the design? What happens at scale?
-- Does the solution go above/beyond from a visual/UI perspective? Is it nice to look at or does it make the eyes bleed?
-
-Happy coding!
+3. You have installed git in your system. Install from here https://git-scm.com/downloads if you have not.
 
 
+
+## Getting Started
+
+- Clone the repository by issuing this command in your terminal: git clone https://github.com/bytenaija/currently-viewing-app.git
+
+Still in your terminal run the following commands:
+- cd currently-viewing-app
+
+### To start the server 
+- cd server
+- npm install
+- Ensure that port 3000 is not being used by another program. If it is not available open the config.js file in the config directory and change the port variable currently set to 3000 to an available port number.
+- npm run dev
+
+
+### To start the client
+Open another terminal and enter the following commands
+- cd client
+- npm install
+- If you changed the port on the server, ensure that you change the port on line 15 in main.js to the port you set on the server so that the socket can connect.
+- npm run dev
+- Open as many browser or browser tabs as you need to test and navigate to http://localhost:8080 and see all the list of IPs of those connected browsers. Note that the IP adresses may be the same since you are actually using one IP for each of the browser.
+
+
+### Note
+- This application uses MongoDB and it is hosted as a sandbox by mlab.com for testing purposes;
+- Uses http://freegeoip.net to ascertain the users IP address and other information.
+
+
+Enjoy your testing!
