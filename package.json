@@ -8,6 +8,7 @@
         "react-test-renderer": "^15.5.0"
     },
     "dependencies": {
+        "axios": "^0.18.0",
         "firebase": "^4.5.2",
         "prop-types": "^15.5.10",
         "react": "^15.5.0",

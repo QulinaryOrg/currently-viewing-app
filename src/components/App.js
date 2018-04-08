@@ -20,7 +20,7 @@ export const App = ({ipAddresses, currentUser}) => {
           </tr>
         </thead>
         <tbody>
-          {Object.keys(ipAddresses).map(key => (
+          {ipAddresses && Object.keys(ipAddresses).map(key => (
             <tr
               key={key}
               className={
