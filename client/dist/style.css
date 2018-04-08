@@ -1,0 +1,13 @@
+body {
+	background-color: #8DA9C4;
+}
+
+header {
+	width: 100%;
+	text-align: center;
+	margin: 0 0 30px 0;
+	font-family: 'Merriweather', serif;
+}
+h1 {
+	color: #4949c4;
+	font-size: 75px;

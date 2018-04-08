@@ -4,6 +4,7 @@
   "description": "Shows a list of IP addresses viewing the page",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js"
   },
@@ -24,6 +25,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
+    "bundle-js": "^1.0.2",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "jquery": "^3.3.1",
@@ -31,5 +33,8 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "webpack": "^4.5.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.0.14"
   }
 }
