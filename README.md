@@ -17,10 +17,10 @@ How to run project:
   git clone git@github.com:Chima1707/currently-viewing-app.git
   npm install
   npm start
-  then visit (http://localhost:3000)
+  then visit http://localhost:3000
 ```
 
-There is a hosted version of the app at (https://chima1707.github.io/currently-viewing-app/)
+There is a hosted version of the app at https://chima1707.github.io/currently-viewing-app/
 
 Main technologies used:
 
