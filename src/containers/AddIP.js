@@ -6,7 +6,7 @@ const AddIP = WrappedComponent => {
     componentDidMount () {
       const { firebase, dispatch } = this.props
       axios
-          .get('https://ipapi.co/json/')
+          .get(process.env.REACT_APP_GET_IP_URL)
           .then(response =>
             firebase.push('/ipAddresses', response.data)
           )

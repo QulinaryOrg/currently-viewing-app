@@ -4,7 +4,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { firebaseConnect, isLoaded } from 'react-redux-firebase'
 import ReactCountryFlag from 'react-country-flag'
-import AddIP from '../containers.js/AddIP'
+import AddIP from '../containers/AddIP'
 
 export const App = ({ipAddresses, currentUser}) => {
   let content = <span>Loading...</span>
