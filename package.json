@@ -1,0 +1,26 @@
+{
+    "name": "currently-viewing-app",
+    "version": "0.0.1",
+    "private": true,
+    "devDependencies": {
+        "enzyme": "^2.8.2",
+        "react-test-renderer": "^15.5.0",
+        "react-scripts": "^1.0.2"
+    },
+    "dependencies": {
+        "firebase": "^4.5.2",
+        "prop-types": "^15.5.10",
+        "react": "^15.5.0",
+        "react-country-flag": "^0.2.0",
+        "react-dom": "^15.5.0",
+        "react-redux": "^5.0.5",
+        "react-redux-firebase": "next",
+        "redux": "^3.5.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "eject": "react-scripts eject",
+        "test": "react-scripts test"
+    }
+}
