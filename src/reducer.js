@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import { firebaseStateReducer as firebase } from 'react-redux-firebase'
 
-const initialState = {current_user: null}
+const initialState = {currentUser: null}
 const main = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_VISIT':
-      return { current_user: action.result }
+      return { currentUser: action.result }
     default:
       return state
   }
