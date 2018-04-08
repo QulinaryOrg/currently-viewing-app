@@ -1,5 +1,6 @@
 //import the viewers model
 const viewer = require("../models/viewers");
+const viewerList = [];
 
 //respond to sockets connection and data communication
 exports.respond = (socket) => {
@@ -10,9 +11,13 @@ exports.respond = (socket) => {
         viewer.create(data)
             .then(result => {
                 let id = result._id;
+                viewerList.push[{id, socket}];
+
+                console.dir(viewerList);
             //find all the currently connected viewers in the database
                 viewer.find({}).then(result => {
             //send id and result to the connected socket
+                   
                     socket.emit('viewer', {
                         id,
                         data: result

@@ -16,9 +16,9 @@
         </ul>
         <hr />
       </div>
-      <div class="online">
+      <div class="online col-md-12">
         <h1>Online Viewers</h1>
-        <div class="paginate row">
+        <div class="paginate col-md-12 row">
           <div class="col-md-7">
             <h3>No of viewers per page</h3>
             <select v-model="size" class="form-control">
@@ -36,7 +36,11 @@
           <!--Iterate through the list and display Ip addresses -->
           <li v-for="(viewer, index) in paginateViewers" :key="index" @click="showDetailModal=true; viewDetails(viewer._id)" >{{viewer.ip}}</li>
           <h4 v-if="ipAddresses.length == 0">You are the only one online</h4>
+
+          
         </div>
+
+        
         <div :class="[pageNumber ? 'display' : '', 'previous']" @click="prevPage">
           &lt;
         </div>
@@ -46,7 +50,7 @@
       </div>
 
       <!--Display the selected in a modal -->
-      <b-modal v-model="showDetailModal">
+      <b-modal v-model="showDetailModal" class="text-center">
         <h2>{{viewerDetails.ip}}</h2>
         Country <p>{{viewerDetails.country}}</p>
         Region <p>{{viewerDetails.region}}</p>
@@ -85,6 +89,7 @@ export default {
       pageNumber: 0,
       size: 5,
       viewerDetails: {}, //deatils of selected viewer
+      pageButtons : []
     };
   },
 
@@ -223,8 +228,16 @@ header {
   width: 5rem;
   height: 5rem;;
 }
+
 .content {
-  margin-bottom: 20rem;
+    margin-bottom: 50rem;
+   
+  }
+
+.modal-body{
+  text-align :center;
+  background-color: rgba(125, 166, 243, 0.5) !important;
+  
 }
 
 li.ownIp {
@@ -281,7 +294,7 @@ footer h3{
 }
 
 .paginate {
-  width: 30%;
+  
   margin: 1rem auto;
 }
 .own-info {
@@ -397,6 +410,7 @@ footer {
   .container-fluid {
     padding: 0 !important;
     margin: auto !important;
+    
   }
 
   .main-text {
@@ -420,6 +434,7 @@ footer {
     text-align: center;
     color: black;
     margin: 0 !important;
+    
   }
 
   .online h1 {
@@ -451,7 +466,15 @@ footer {
   }
 
   .content {
-    margin-bottom: 20rem;
+    margin-bottom: 50rem;
+   
   }
+
+  .previous,
+.next {
+  
+  top: 30rem;
+ 
+}
 }
 </style>
