@@ -30,7 +30,7 @@ export const App = ({ipAddresses, currentUser}) => {
             >
               <td>{ipAddresses[key]['ip']}</td>
               <td>{ipAddresses[key]['city']}</td>
-              <td>{ipAddresses[key]['country']}</td>
+              <td>{ipAddresses[key]['country_name']}</td>
               <td>
                 {
                   <ReactCountryFlag
