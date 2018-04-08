@@ -35,5 +35,11 @@ Open another terminal and enter the following commands
 - If you changed the port on the server, ensure that you change the port on line 15 in main.js to the port you set on the server so that the socket can connect.
 - npm run dev
 - Open as many browser or browser tabs as you need to test and navigate to http://localhost:8080 and see all the list of IPs of those connected browsers. Note that the IP adresses may be the same since you are actually using one IP for each of the browser.
- 
-Happy testing!
+
+
+### Note
+- This application uses MongoDB and it is hosted as a sandbox by mlab.com for testing purposes;
+- Uses http://freegeoip.net to ascertain the users IP address and other information.
+
+
+Enjoy your testing!
