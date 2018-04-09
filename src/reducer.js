@@ -3,7 +3,7 @@ import { firebaseStateReducer as firebase } from 'react-redux-firebase'
 
 const initialState = {currentUser: null}
 /**
- * Reducer for current user. Changed by `AUTHENTICATION_INIT_STARTED`
+ * Reducer for current user
  * @param  {Object} state - Current  redux state
  * @param  {object} action - Object containing the action that was dispatched
  * @param  {String} action.type - Type of action that was dispatched

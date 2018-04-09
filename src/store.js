@@ -7,7 +7,7 @@ import firebase from 'firebase'
 /**
  * @name configureStore
  * @description Function that configures redux store, it initializes firebase instance
- * @return {Onject} - Configured store
+ * @return {Object} - Configured store
  */
 export default function configureStore () {
   firebase.initializeApp(fbConfig)
