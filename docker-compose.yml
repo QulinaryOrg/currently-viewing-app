@@ -1,0 +1,29 @@
+version: "2"
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    network_mode: bridge
+    links:
+      - socket-server
+    volumes:
+      - ./client/public:/app
+      - ./docker/web/site.conf:/etc/nginx/conf.d/default.conf
+  socket-server:
+    build: server/
+    network_mode: bridge
+    links:
+      - redis
+    expose:
+      - "3000"
+      - "3001"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    tty: true
+  redis:
+    image: redis:alpine
+    network_mode: bridge
+    expose:
+      - "6379"
