@@ -9,7 +9,7 @@ How to run project:
 ```
   git clone git@github.com:Chima1707/currently-viewing-app.git
   npm install
-  set env vars, by making a copy of `env.sample`, rename it to `.env`.
+  set env vars, by making a copy of env.sample, rename it to .env
   npm start
   then visit http://localhost:3000
 ```
