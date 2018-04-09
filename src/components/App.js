@@ -4,8 +4,13 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { firebaseConnect, isLoaded } from 'react-redux-firebase'
 import ReactCountryFlag from 'react-country-flag'
-import AddIP from '../containers/AddIP'
-
+import addIP from '../containers/AddIP'
+/**
+ * @name App
+ * @description A stateless functional component that displays list of visitors when available
+ * or Loading... status when still loading list of visitors. it dynamically shows latest list when a
+ * visitor joins or leaves a page.
+ */
 export const App = ({ipAddresses, currentUser}) => {
   let content = <span>Loading...</span>
   if (isLoaded(ipAddresses)) {
@@ -61,5 +66,5 @@ export default compose(
       currentUser
     })
   ),
-  AddIP
+  addIP
 )(App)

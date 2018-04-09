@@ -4,8 +4,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store'
 import App from './components/App'
 
-const initialState = window.__INITIAL_STATE__ // set initial state here
-const store = configureStore(initialState)
+const store = configureStore()
 
 render(
   <Provider store={store}>

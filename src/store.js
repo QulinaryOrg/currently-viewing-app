@@ -4,7 +4,12 @@ import { firebase as fbConfig } from './config'
 import { reactReduxFirebase } from 'react-redux-firebase'
 import firebase from 'firebase'
 
-export default function configureStore (initialState, history) {
+/**
+ * @name configureStore
+ * @description Function that configures redux store, it initializes firebase instance
+ * @return {Onject} - Configured store
+ */
+export default function configureStore () {
   firebase.initializeApp(fbConfig)
   const createStoreWithMiddleware = compose(
     reactReduxFirebase(firebase,
