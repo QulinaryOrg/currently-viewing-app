@@ -44,7 +44,7 @@ Happy coding!
 // Created for Taro Bites Coding challenge. Did not use webpack for React compiling, so npm start script must be used, but user IPs should show up dynamically. 
 Instructions for new users:
 
-Prelim: run npm install both globally in the currently-viewing-app foler and in the ./socket folder
+Prelim: run npm install both globally in the currently-viewing-app folder and in the ./socket folder
 1. In order to get the website to work, navigate to the socket directory in your terminal
   -- cd ./socket
 2. Then use the npm start script described in that section's package.json. 
