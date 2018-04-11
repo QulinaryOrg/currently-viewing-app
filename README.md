@@ -40,3 +40,18 @@ You will be evaluated with the following in mind:
 Happy coding!
 
 
+
+// Created for Taro Bites Coding challenge. Did not use webpack for React compiling, so npm start script must be used, but user IPs should show up dynamically. 
+Instructions for new users:
+
+Prelim: run npm install both globally in the currently-viewing-app foler and in the ./socket folder
+1. In order to get the website to work, navigate to the socket directory in your terminal
+  -- cd ./socket
+2. Then use the npm start script described in that section's package.json. 
+  -- npm start
+3. To start server, navigate back to main directory
+  -- cd ..
+4. You should now be in currently-viewing-app. Use the server start script 
+  -- node server.js
+5. Navigate to http://localhost:3000 or http://10.8.65.62:3000/ 
+  -- You should see yourself and all other users appear in the site dynamically through their socket io ip
