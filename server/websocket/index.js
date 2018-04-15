@@ -17,6 +17,12 @@ function listen(http) {
     })
   }
 
+  server.broadcastAction = (type, payload) => {
+    server.broadcast(
+      JSON.stringify({ type, payload })
+    )
+  }
+
   server.on('connection', (client, req) => {
     handleConnection(server, client, req)
 
@@ -37,7 +43,12 @@ function handleConnection(server, client, req) {
   client.address = req.connection.remoteAddress
 
   Addresses.append(client.address)
-  server.broadcast(Addresses.toString())
+  server.broadcastAction('CLIENT_JOIN', {
+    data: Addresses.get(),
+    meta: {
+      diff: client.address,
+    },
+  })
 }
 
 /**
@@ -46,7 +57,12 @@ function handleConnection(server, client, req) {
  */
 function handleClose(server, client) {
   Addresses.remove(client.address)
-  server.broadcast(Addresses.toString())
+  server.broadcastAction('CLIENT_LEAVE', {
+    data: Addresses.get(),
+    meta: {
+      diff: client.address,
+    },
+  })
 }
 
 /**

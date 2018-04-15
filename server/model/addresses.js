@@ -21,9 +21,7 @@ function has(item) {
  * @param {string} item
  */
 function append(item) {
-  if (!has(item)) {
-    collection.push(item)
-  }
+  collection.push(item)
 }
 
 /**
