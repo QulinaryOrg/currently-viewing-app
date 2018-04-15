@@ -1,0 +1,9 @@
+@import "normalize.css";
+@value colors: "./colors.css";
+@value darkGray from colors;
+
+.body {
+  composes: base from "./typography.css";
+  composes: body from "./layout.css";
+  color: darkGray;
+}
