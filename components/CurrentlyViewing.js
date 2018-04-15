@@ -1,5 +1,6 @@
 import cssList from "../assets/style/list.css";
 import cssLayout from "../assets/style/layout.css";
+import Loading from "./Loading";
 
 export default ({ viewers = [], isLoading }) => (
   <div className={`${cssList.border} ${cssLayout.container}`}>
@@ -11,7 +12,11 @@ export default ({ viewers = [], isLoading }) => (
           {viewer.isViewer ? " (you)" : ""}
         </div>
       ))}
-      {isLoading ? <div className={cssList.listItem}>Loading more...</div> : ""}
+      {isLoading && (
+        <div className={cssList.listItem}>
+          <Loading />
+        </div>
+      )}
     </div>
   </div>
 );
