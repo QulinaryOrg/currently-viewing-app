@@ -3,6 +3,7 @@ import Head from "next/head";
 import * as firebase from "firebase";
 import ip from "ip"; /* IP util for node */
 import CurrentlyViewing from "../components/CurrentlyViewing";
+import css from "../assets/style/style.css";
 
 /* credentials hardcoded for demo, with no auth for public read/write.
  In production, api keys should be placed in .env variables and injected during runtime.
@@ -61,7 +62,7 @@ export default class extends React.Component {
   render() {
     const { isLoading, viewers } = this.state;
     return (
-      <div>
+      <div className={css.body}>
         <Head>
           <title>Qulinary - Currently Viewing</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
