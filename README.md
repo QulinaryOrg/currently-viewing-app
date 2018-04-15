@@ -41,7 +41,9 @@ Happy coding!
 
 ## Installation Instructions
 
-* `npm install`
+* `git clone https://github.com/vinzloh/currently-viewing-app.git`
+* `cd currently-viewing-app` and `npm install`
 * `npm run dev` (by default this should run on `localhost:3000`)
-* Download [ngrok](https://ngrok.com/download)
+* Download [ngrok](https://ngrok.com/download) to expose a public URL for the local web server
 * run `./ngrok http -region=ap 3000` (if the port for localhost above is `3000`)
+* you should see a url such as `http://68872d6f.ap.ngrok.io` which will allow testing the app from outside your local network (e.g. your mobile phone using data), therefore registering a different IP address in the app. Other IP addresses can be the laptop accessing `localhost:3000` or `http://68872d6f.ap.ngrok.io/`
