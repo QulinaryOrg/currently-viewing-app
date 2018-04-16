@@ -1,0 +1,29 @@
+.app {
+  width: 350px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+.card-header {
+  padding: 20px 15px;
+  padding-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+}
+
+.card-title {
+  margin: 0;
+  padding: 0;
+  color: #606BE3;
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+.card-content {
+  padding: 15px 10px;
+}
