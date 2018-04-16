@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 import Websocket from 'react-websocket'
 import { ToastContainer, toast } from 'react-toastify'
 
+import config from './config'
+
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 
 class App extends Component {
+  /**
+   * @params {object} props
+   */
   constructor(props) {
     super(props)
 
@@ -16,6 +21,9 @@ class App extends Component {
     this.handleMessage = this.handleMessage.bind(this)
   }
 
+  /**
+   * @params {string} action
+   */
   handleMessage(action) {
     const { type, payload } = JSON.parse(action)
 
@@ -31,6 +39,9 @@ class App extends Component {
           this.renderNotification('Client Leave', payload.meta.diff)
         )
         break
+
+      default:
+        break
     }
 
     this.setState({
@@ -38,6 +49,11 @@ class App extends Component {
     })
   }
 
+  /**
+   * @param {string} title
+   * @param {string} value
+   * @return {React.Element}
+   */
   renderNotification(title, value) {
     return (
       <div>
@@ -49,6 +65,9 @@ class App extends Component {
     )
   }
 
+  /**
+   * return {React.Element}
+   */
   render() {
     return (
       <div className="app">
@@ -72,7 +91,7 @@ class App extends Component {
         </div>
 
         <ToastContainer autoClose={3000} />
-        <Websocket url="ws://localhost:8080" onMessage={this.handleMessage}/>
+        <Websocket url={config.websocket_url} onMessage={this.handleMessage}/>
       </div>
     );
   }

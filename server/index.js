@@ -6,7 +6,7 @@ const routes = require('./config/routes')
 const websocket = require('./websocket')
 
 // Variables
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3001
 
 // Instances
 const app = express()
