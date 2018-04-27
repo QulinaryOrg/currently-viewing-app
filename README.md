@@ -2,6 +2,21 @@
 
 Shows a list of IP addresses viewing the page
 
+## Getting Started
+
+```shell
+# TODO
+
+"scripts": {
+  "postinstall": "cd nested_dir && npm install",
+  ...
+}
+```
+
+---
+
+# Original Readme
+
 ## Requirements
 
 Create a single-page web app that:
