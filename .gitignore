@@ -56,3 +56,7 @@ typings/
 
 # Optional REPL history
 .node_repl_history
+
+# ignore webpack build
+app.js
+public/

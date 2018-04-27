@@ -13,6 +13,26 @@ Shows a list of IP addresses viewing the page
 }
 ```
 
+## Developers
+
+To get developing, start the webpack dev server:
+
+```shell
+# double check env vars in .env first!
+git clone git@github.com:Nik-H0/currently-viewing-app.git
+cd currently-viewing-app
+npm start
+```
+
+### Deps
+
+- Gulp CLI (for running gulp build commands)
+
+```shell
+# might need sudo
+npm install -g gulp-cli
+```
+
 ---
 
 # Original Readme
