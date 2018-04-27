@@ -1,0 +1,19 @@
+{
+  "name": "currently-viewing-app",
+  "version": "0.0.1",
+  "description": "Shows a list of IP addresses viewing the page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nik-H0/currently-viewing-app.git"
+  },
+  "author": "Nik Ho <nik@maelstrom.tech>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nik-H0/currently-viewing-app/issues"
+  },
+  "homepage": "https://github.com/Nik-H0/currently-viewing-app#readme"
+}
