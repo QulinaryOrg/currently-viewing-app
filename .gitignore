@@ -48,8 +48,8 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
+# dotenv environment variables file - Normally ignore this file!!!
+# .env
 
 # next.js build output
 .next

@@ -4,7 +4,9 @@
   "description": "Shows a list of IP addresses viewing the page.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,25 @@
   "bugs": {
     "url": "https://github.com/Nik-H0/currently-viewing-app/issues"
   },
-  "homepage": "https://github.com/Nik-H0/currently-viewing-app#readme"
+  "homepage": "https://github.com/Nik-H0/currently-viewing-app#readme",
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-1": "6.24.1",
+    "css-loader": "0.28.11",
+    "dotenv-webpack": "1.5.5",
+    "style-loader": "0.20.3",
+    "webpack": "3.6.0",
+    "webpack-dev-server": "2.9.3"
+  },
+  "dependencies": {
+    "moment": "2.22.1",
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "react-router": "4.2.0",
+    "react-router-dom": "4.2.2",
+    "redux": "4.0.0"
+  }
 }
