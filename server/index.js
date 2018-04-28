@@ -5,15 +5,14 @@ const app = express();
 const server = http.createServer(app);
 const io = require('socket.io')(server);
 
-const whois = require('./services/storage');
-console.log(whois.ipList)
+let whois = require('./services/storage');
 
 app.use(morgan('combined'));
 
 // routes
 app.get('/', (req, res) => {
-  // res.send({ 'Hello': 'World!' });
-  res.sendFile(__dirname + '/index.html');
+  res.send({ 'echo': 'server!' });
+  // res.sendFile(__dirname + '/index.html');
 });
 
 io.use((socket, next) => {
@@ -23,14 +22,14 @@ io.use((socket, next) => {
 
 io.on('connection', (socket) => {
   console.log('a user connected', socket.id);
-  console.log(socket.handshake);
 
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
-  });
+  whois.push(socket.id, socket.handshake);
+  io.emit('connections', whois.connections());
 
   socket.on('disconnect', () => {
     console.log('user disconnected');
+    whois.pop(socket.id);
+    io.emit('connections', whois.connections());
   });
 });
 
