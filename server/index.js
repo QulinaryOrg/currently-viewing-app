@@ -12,7 +12,6 @@ app.use(morgan('combined'));
 // routes
 app.get('/', (req, res) => {
   res.send({ 'echo': 'server!' });
-  // res.sendFile(__dirname + '/index.html');
 });
 
 io.use((socket, next) => {
