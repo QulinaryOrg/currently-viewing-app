@@ -9,7 +9,7 @@ import reducers from './reducers';
 import Slash from './components/slash';
 import Error404 from './components/error/404';
 
-const store = createStore(
+export const store = createStore(
   reducers,
   compose(
     applyMiddleware(reduxThunk)
