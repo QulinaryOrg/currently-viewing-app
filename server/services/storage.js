@@ -26,14 +26,12 @@ module.exports = {
         }
       );
     }
-    //console.log('push', this.ipAddresses.toObject());
   },
   pop: (clientId) => {
     // remove user from connected users object
     if (this.ipAddresses) {
       this.ipAddresses = this.ipAddresses.delete(clientId);
     }
-    //console.log('pop', this.ipAddresses.toObject());
   },
   connections: () => {
     return this.ipAddresses.toObject();

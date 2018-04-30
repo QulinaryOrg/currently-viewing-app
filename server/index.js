@@ -26,14 +26,14 @@ io.on('connection', (socket) => {
   io.emit('connections', whois.connections());
 
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+    console.log('user disconnected', socket.id);
     whois.pop(socket.id);
     io.emit('connections', whois.connections());
   });
 });
 
 const port = process.env.PORT || 5000;
-server.listen(port, () => {
+server.listen(port, '0.0.0.0', () => { // hostname param to force ipv4 addresses
   console.log('Server listening on:', port);
 });
 

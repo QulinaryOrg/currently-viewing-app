@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  echoserver:
+    build:
+      context: ./server
+    image: echoserver
+    ports:
+      - 5000:5000
+    networks:
+      - backend
+    container_name: echoserver
+  
+  webapp:
+    build:
+      context: .
+    image: webapp
+    ports:
+      - 8080:80
+    depends_on:
+      - echoserver
+    networks:
+      - default
+      - backend
+
+networks:
+  backend:
+    driver: bridge

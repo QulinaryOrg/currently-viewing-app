@@ -34,9 +34,6 @@ class Slash extends PureComponent {
           component="nav"
           subheader={<ListSubheader component="div">Currently Connected IP Addresses</ListSubheader>}
         >
-          <ListItem button>
-            <ListItemText primary={this.props.welcome} />
-          </ListItem>
           {this.renderConnections()}
         </List>
       </div>
