@@ -6,15 +6,15 @@ The app is built with 2 containers, front end based on nginx and back end based 
 
 ## Getting Started
 
-First thing, get system dependencies installed:
+First thing, get system dependencies installed (versions app was developed on):
 
-- Node.js (and npm)
+- Node.js (v8.10+)
 
-- Docker
+- Docker (require engine version 1.13.0+)
 
-- Docker Compose
+- Docker Compose (1.12.0+)
 
-- Gulp CLI (for building the React app with Webpack)
+- Gulp CLI (for building the React app with Webpack) (2.0.1)
 
 - Git
 
