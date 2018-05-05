@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<meta name=viewport content="width=device-width, initial-scale=1">
+		<title>Currently viewing</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+		<link rel="stylesheet" href="page.css">
+	</head>
+	<body>
+		<center>
+			<div class="maindiv">
+				<h1>Currently viewing</h1>
+				<br>
+				<ul id='list'></ul>
+			</div>
+		</center>
+		<script src="./page.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+		console.log('opening socket.io connection');
+		var socket = io(),
+		    ownIP='';
+		socket.on('connect_error', function (m) { 
+			console.log("error"); 
+		});
+		socket.on('connect', function (m) {  
+			console.log('socket connected')
+		});
+		socket.on('message', function (ipList) { 
+			showIPs(ipList);
+		});
+		</script>
+	</body>
+</html>
