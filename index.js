@@ -21,11 +21,6 @@ io.on('connection', socket => {
 
   socket.on('disconnect', reason => {
 	delete socket[socket.id];
-	console.log(socket.id);
-	console.log(getIpFromSocket(socket));
-	console.log(socketIPs.join(', '));
-	console.log(socket.id);
-	console.log(socketIDs.join(', '));
 	socketIPs.splice(socketIDs.indexOf(socket.id), 1);
 	socketIDs.splice(socketIDs.indexOf(socket.id), 1);
 	
