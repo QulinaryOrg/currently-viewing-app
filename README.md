@@ -12,15 +12,23 @@ Create a single-page web app that:
 
 ## Guidelines
 
-- You MUST include installation instructions so that it can be run locally be other developers.
-- You MUST publish your solution as a public github repository.
-- You MUST include, at a minimum, a javascript component on the client-side portion of the application; the rest of the solution is up to you.
+~~- You MUST include installation instructions so that it can be run locally be other developers.~~
+~~- You MUST publish your solution as a public github repository.~~
+- Available at `https://github.com/flashcrow2000/currently-viewing-app`
+
+~~- You MUST include, at a minimum, a javascript component on the client-side portion of the application; the rest of the solution is up to you.~~
+- Main functionality added to `public\page.js`
+
 - You SHOULD make extensive use of any tools/frameworks/libraries/APIs you feel aid in completion of the tree requirements
 - You SHOULD follow best practices for the languages or tools that you select.
 - You SHOULD take as little or as long as you need (but don't overdo it). You will not be evaluated on time to complete.
 - You SHOULD ask questions if anything specified here is not clear in any way.
 
 ## Instructions
+
+- Run `npm install` after cloning
+- Run `npm start` to start the server
+- Point your browser to `http://localhost:4500` to see it in action
 
 1. Fork this github repository using your personal github account
 2. Create your solution. Test it. Test it again to be sure. Commit it and push to your personal repo.
