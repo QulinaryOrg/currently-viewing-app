@@ -1,6 +1,66 @@
 # Currently Viewing App
 
-Shows a list of IP addresses viewing the page
+Shows a list of IP addresses viewing the page.
+
+The app is built with 2 containers, front end based on nginx and back end based on Node.js. Docker Compose is used to start and stop the deployment. 
+
+## Getting Started
+
+First thing, get system dependencies installed (versions app was developed on):
+
+- Node.js (v8.10+)
+
+- Docker (require engine version 1.13.0+)
+
+- Docker Compose (1.12.0+)
+
+- Gulp CLI (for building the React app with Webpack) (2.0.1)
+
+- Git
+
+Then start the app from a terminal:
+
+```shell
+# to start the app
+git clone git@github.com:Nik-H0/currently-viewing-app.git
+cd currently-viewing-app
+npm install
+npm run app
+
+# to view the echo server output
+docker logs echoserver -f # ctrl + c to stop log streaming
+
+# to stop the app and cleanup the containers
+npm stop
+```
+
+## Developers
+
+To get developing, it'll help to have 2 terminal consoles open:
+
+```shell
+# Terminal 1
+git clone git@github.com:Nik-H0/currently-viewing-app.git
+cd currently-viewing-app
+npm install
+cd server/
+npm start
+
+# Terminal 2
+cd currently-viewing-app
+npm start
+```
+
+The app should be viewable in a web browser on `localhost:8080`.
+
+## TODO
+
+- Unit tests
+
+
+---
+
+# Original Readme
 
 ## Requirements
 

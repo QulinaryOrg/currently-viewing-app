@@ -1,0 +1,12 @@
+html { 
+  font-family: 'Roboto', sans-serif; 
+}
+
+.error-message {
+  font-size: 4em;
+}
+
+.error-icon {
+  font-size: 4em !important;
+  color: red;
+}
