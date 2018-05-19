@@ -15,35 +15,9 @@ All the requirements in the `instructions.md` file are compeleted.
 
 1.  Clone this repo.
 2.  Run `yarn` or `npm install`.
-3.  Run `yarn start` to start the app in development mode in the local environment
+3.  Run `yarn now-start` to start the Graphql service
+4.  Run `yarn start` to start the app in development mode in the local environment
 
-Currently this app only includes the frontend part of the project. A backend API will be soon added along with instructions to deploy and start the service locally as well as on other platforms.
+This app includes both the frontend and backend code. frontend is built using React/Apollo and backend is built using Graphql. Real time updates are sent over graphql subscriptions.
 
-Until then, the app looks kinda boring since it never updates as it is not live yet. So to test the app or to see a demo, it currently exposes a global called `fakeUpdater`.
-
-It is a `RX Subject` that is used by our app as an `Observable` to consume updates. To simplify, `fakeUpdater` exposes a function `next` which can be used to issue fake updates.
-
-Open the browser console after running `yarn start` and paste bellow code to see updates.
-
-For adding an Ip:
-
-```js
-window.fakeUpdater.next({
-  type: 'ADD,
-  payload: {
-    ip: '176.25.1.5',
-    joined: new Date()
-  }
-})
-```
-
-For removing:
-
-```js
-window.fakeUpdater.next({
-  type: 'REMOVE,
-  payload: '176.25.1.5'
-})
-```
-
-This updates will be ideally made by a GraphQL subscription that sends updates when a user opens the app and closes the app.
+To check the live version of the app, visit https://currently-viewing.surge.sh/ and to interact with the graphql api and see the backend docs, visit https://currently-viewing.now.sh/
