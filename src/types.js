@@ -1,4 +1,4 @@
 export type IpData = {
   ip: string,
-  joined: Date,
+  countryName: ?string,
 }

@@ -11,10 +11,10 @@ const Table = styled.table`
   }
 `
 
-const IpRow = ({ ip, joined }: IpData) => (
+const IpRow = ({ ip, countryName }: IpData) => (
   <tr>
     <td>{ip}</td>
-    <td>{joined.toLocaleString()}</td>
+    <td>{countryName || '-'}</td>
   </tr>
 )
 
@@ -24,7 +24,7 @@ export default ({ ipDataList }: { ipDataList: IpData[] }) =>
       <thead>
         <tr>
           <th>IP Address</th>
-          <th>Join Time</th>
+          <th>Country</th>
         </tr>
       </thead>
 
