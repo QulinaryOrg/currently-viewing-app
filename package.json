@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-cache-inmemory": "^1.2.1",
+    "apollo-client": "^2.3.1",
+    "apollo-link": "^1.2.2",
+    "apollo-link-http": "^1.5.4",
+    "apollo-link-ws": "^1.0.8",
+    "apollo-utilities": "^1.0.12",
+    "graphql-tag": "^2.9.2",
     "graphql-yoga": "^1.14.0",
     "iplocation": "^5.0.0",
     "react": "^16.3.2",

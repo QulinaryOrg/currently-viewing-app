@@ -6,7 +6,10 @@
  *
  */
 
-import { Observable, Subject } from 'rxjs'
+import { Subject } from 'rxjs'
+import gql from 'graphql-tag'
+
+import client from '../utils/graphqlClient'
 
 // This fake updater just sends ADD actions to the observer.
 // Its is used for testing an demo purpose.
@@ -21,5 +24,18 @@ if (process.env.NODE_ENV === 'development') {
   window.fakeUpdater = fakeUpdater
 }
 
-// TODO: Create a real updater that updates the observer on new actions.
-export const updater = Observable.create(observer => {})
+export const updater = client
+  .subscribe({
+    query: gql`
+      subscription {
+        ipDataUpdate {
+          type
+          payload {
+            ip
+            countryName
+          }
+        }
+      }
+    `,
+  })
+  .map(({ data }) => data.ipDataUpdate)
