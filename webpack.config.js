@@ -24,8 +24,7 @@ module.exports = (env) => {
           test: /\.css$/,
           use: ['style-loader', 'css-loader']        
         }
-      ],
-      loaders: []
+      ]
     },
     resolve: {
       extensions: ['.js', '.jsx']
@@ -38,6 +37,17 @@ module.exports = (env) => {
       new webpack.DefinePlugin({
         'process.env.ECHOSERVER': JSON.stringify(env.ECHOSERVER)
       })
-    ]
+    ],
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            name: "commons",
+            chunks: "initial",
+            minChunks: 2
+          }
+        }
+      }
+    }    
   }
 };
