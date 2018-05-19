@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "graphql-yoga": "^1.14.0",
+    "iplocation": "^5.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
@@ -16,14 +18,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "now-build": "NODE_ENV=production babel  src/ -d service --copy-files",
+    "now-start": "node service/server.js",
+    "server:dev": "NODE_ENV=development babel-node  src/server.js"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+    "extends": ["react-app"]
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "flow-bin": "^0.72.0",
     "flow-typed": "^2.4.0"
   }
