@@ -1,0 +1,22 @@
+type IpData {
+  ip: String!
+  countryName: String
+}
+
+enum UpdateType {
+  ADD
+  REMOVE
+}
+
+type IpDataUpdate {
+  type: UpdateType
+  payload: IpData
+}
+
+type Query {
+  allIpData: [IpData!]!
+}
+
+type Subscription {
+  ipDataUpdate: IpDataUpdate!
+}
