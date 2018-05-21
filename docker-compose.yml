@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  client: 
+    build: ./client
+    image: client_image
+    command: npm start
+    ports: 
+      - 3000:3000
+    networks:
+      - main_network
+    volumes: 
+      - ./client:/client
+
+  server:
+    build: ./server
+    image: server_image
+    command: npm run start:dev
+    ports:
+      - 8000:8000
+    networks:
+      - main_network
+    volumes:
+      - ./server:/server
+    depends_on:
+      - redis
+    env_file: ./.env
+
+  redis:
+    container_name: viewing_redis
+    image: "redis:alpine"
+    ports:
+      - 6379:6379
+    networks:
+      - main_network
+    volumes:
+      - data:/data/
+
+volumes:
+  data:
+
+networks:
+  main_network:
+    driver: bridge
