@@ -4,12 +4,15 @@ import { createClient } from 'redis';
 import { promisify } from 'util';
 import { createServer } from 'http';
 
-const { port } = config;
-const server = new createServer();
-const wss = new WebSocket.Server({ server, port });
-const redis = createClient();
+const { port, redis_port, redis_url } = config;
+const server = new createServer((req, res) =>  {
+    res.end('Resonse from http server');
+});
 
-console.log('Websocket listening on port:', port);
+
+const wss = new WebSocket.Server({ server });
+
+const redis = createClient({ host: redis_url, port: redis_port });
 
 const getlistAsync = promisify(redis.lrange).bind(redis);
 const hmsetAsync = promisify(redis.rpush).bind(redis);
@@ -17,7 +20,8 @@ const rpushAsync = promisify(redis.rpush).bind(redis);
 const delAsync = promisify(redis.del).bind(redis);
 
 const getConnectedUsers = async () => {
-    return getlistAsync('connectedUsers', 0, -1).then((list) => list.map(item => JSON.parse(item)));
+    return getlistAsync('connectedUsers', 0, -1)
+            .then((list) => list.map(item => JSON.parse(item)));
 };
 
 const appendUsers = async (value) => {
@@ -93,3 +97,5 @@ wss.on('connection', async (ws, req) => {
         });
     })
 });
+
+server.listen(port, () => console.log('Http Server listening', port));
