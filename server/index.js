@@ -1,11 +1,11 @@
 import WebSocket from 'ws';
 import config from './config';
-import { createClient } from 'redis';
-import { promisify } from 'util';
 import { createServer } from 'http';
+import { createClient } from 'redis';
+import helper from './utils/redis_helper'
 
 const { port, redis_port, redis_url } = config;
-const server = new createServer((req, res) =>  {
+const server = new createServer((req, res) => {
     res.end('Resonse from http server');
 });
 
@@ -13,15 +13,16 @@ const server = new createServer((req, res) =>  {
 const wss = new WebSocket.Server({ server });
 
 const redis = createClient({ host: redis_url, port: redis_port });
-
-const getlistAsync = promisify(redis.lrange).bind(redis);
-const hmsetAsync = promisify(redis.rpush).bind(redis);
-const rpushAsync = promisify(redis.rpush).bind(redis);
-const delAsync = promisify(redis.del).bind(redis);
+const {
+    hmsetAsync,
+    hgetallAsync,
+    hdelAsync,
+    rpushAsync
+} = helper(redis);
 
 const getConnectedUsers = async () => {
-    return getlistAsync('connectedUsers', 0, -1)
-            .then((list) => list.map(item => JSON.parse(item)));
+    return lrangeAsync('connectedUsers', 0, -1)
+        .then((list) => list.map(item => JSON.parse(item)));
 };
 
 const appendUsers = async (value) => {
@@ -49,21 +50,19 @@ const removeUser = async (value) => {
 
 wss.on('connection', async (ws, req) => {
     let result = null;
+    let ip = null;
     ws.isAlive = true;
 
+    console.log(req);
     const clientAddress = req.connection.remoteAddress;
-    const ipRegex = /\d{3}.\d{1,3}.\d{1,3}.\d{1,3}/g
-    const ip = clientAddress.match(ipRegex)[0];
-
-    ws.identifer = ip;
-
-    addUserBlock: try {
+    const matches = clientAddress.match(/\d{3}.\d{1,3}.\d{1,3}.\d{1,3}/g)
+    if (matches.length === 0) {
+        ip = clientAddress
+    } else {
+        ip = clientAddress[0];
+    }
+    try {
         result = await getConnectedUsers()
-
-        // skip duplicates
-        if (result.filter((item) => item.ip === ip).length !== 0) {
-            break addUserBlock;
-        }
 
         const newUser = { ip, date: Date.now() }
         await appendUsers(newUser)
