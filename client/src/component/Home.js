@@ -7,6 +7,7 @@ export default class Home extends Component {
         super(props);
         this.state = {
             ips: [],
+            connected: false
         };
     }
 
@@ -15,6 +16,7 @@ export default class Home extends Component {
 
         wss.onopen = ev => {
             console.log(ev, 'event on open... ')
+            this.setState({ connected: true })
         }
 
         wss.onmessage = ({ data, error }) => {
@@ -23,10 +25,7 @@ export default class Home extends Component {
                 return;
             }
             const ips = JSON.parse(data).data;
-            this.setState({
-                connected: true,
-                ips,
-            });
+            this.setState({ ips });
         }
     }
 
@@ -34,7 +33,6 @@ export default class Home extends Component {
         const { connected, ips } = this.state;
 
         if (!connected) {
-            console.log(connected);
             return (
                 <div style={{ textAlign: 'center', color: '#888' }}>
                     Not connected
