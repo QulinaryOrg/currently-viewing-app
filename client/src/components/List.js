@@ -3,7 +3,7 @@ import React from 'react';
 const ListItem = ({ item }) => {
     return (<div className="list-group-item justify-content-start">
         <div className="lead">{item.key}</div>
-        <div className="badge badge-secondary">{item.value} clients </div>
+        <div className="badge badge-secondary"> {`${item.value} client${ item.value === '1' ? '' : 's'}`} </div>
     </div>);
 }
 
