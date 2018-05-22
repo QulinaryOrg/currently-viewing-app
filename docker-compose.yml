@@ -10,7 +10,7 @@ services:
     networks:
       - main_network
     volumes: 
-      - ./client:/client
+      - ./client:/src
     env_file: ./client/.env
 
   server:
@@ -22,7 +22,7 @@ services:
     networks:
       - main_network
     volumes:
-      - ./server:/server
+      - ./server:/src
     depends_on:
       - redis
     env_file: ./server/.env

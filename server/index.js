@@ -23,7 +23,7 @@ wss.on('connection', async (ws, req) => {
     const clientAddress = req.connection.remoteAddress;
     const matches = clientAddress.match(/\d{3}.\d{1,3}.\d{1,3}.\d{1,3}/g)
 
-    ip = (matches && matches.length !== 0) ? match[0] : clientAddress;
+    ip = (matches && matches.length !== 0) ? matches[0] : clientAddress;
 
     ws.identifer = ip
 
