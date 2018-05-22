@@ -30,7 +30,8 @@ wss.on('connection', async (ws, req) => {
         await appendUsers(ip);
         result = await getConnectedUsers();
     } catch (error) {
-        console.log(error)
+        
+        console.log(error) // Use logging mechanism
         ws.send({ error, message: 'something went wrong connecting to you' });
         return
     }
@@ -52,11 +53,10 @@ wss.on('connection', async (ws, req) => {
         clearInterval(token);
 
         try {
-            console.log('ws id', ws.identifer);
             await removeUser(ws.identifer);
             result = await getConnectedUsers();
         } catch (error) {
-            console.log(error);
+            console.log(error); // Use logging mechanism
         }
 
         wss.clients.forEach((ws) => {

@@ -5,8 +5,12 @@ import constants from './constants';
 
 const { REDIS_IP_KEY } = constants;
 const { redis_port, redis_url } = config;
+
+// should be a sigleton if file is imported multiple times to aviod multiple clients
 const redis = createClient({ host: redis_url, port: redis_port });
-console.log('Redis connection established.', REDIS_IP_KEY)
+
+console.log('Redis connection established.');
+
 
 const {
     hmsetAsync,
@@ -16,20 +20,25 @@ const {
     hgetAsync
 } = helper(redis);
 
+console.log('Purging cache...');
+redis.flushall();
+console.log('Purging cache completed!');
+
+
 /// return object of ip->noOfConnections
 export const getConnectedUsers = async () => {
     return hgetallAsync(REDIS_IP_KEY)
 };
 
-/// delete cache
+/// clear redis cache
 export const clearAll = async () => {
     return delAsync(REDIS_IP_KEY)
 }
 
+/// remove item from redis cache
 export const removeUser = async (key) => {
     try {
         const count = await hgetAsync(REDIS_IP_KEY, key) || '0'
-        console.log('remove', count);
         const noOfConnections = parseInt(count) - 1;
         if (noOfConnections <= 0) {
             await hdelAsync(REDIS_IP_KEY, key);
@@ -37,12 +46,11 @@ export const removeUser = async (key) => {
             await hsetAsync(REDIS_IP_KEY, key, noOfConnections);
         }
     } catch (error) {
-        console.log(error);
+        console.log(error); // should use a loggine mechanism
     }
 }
 
 export const appendUsers = async (key) => {
     const count = await hgetAsync(REDIS_IP_KEY, key) || '0'
-    console.log('appendUser', count);
     return await hsetAsync(REDIS_IP_KEY, key, parseInt(count) + 1);
 }
