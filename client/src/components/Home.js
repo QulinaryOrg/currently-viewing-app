@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import List from './List';
 import config from '../config';
 
-console.log(config, '..')
 export default class Home extends Component {
 
     constructor(props) {
