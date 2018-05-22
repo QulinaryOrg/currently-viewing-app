@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import List from './List';
+import config from '../config';
 
+console.log(config, '..')
 export default class Home extends Component {
 
     constructor(props) {
@@ -12,10 +14,9 @@ export default class Home extends Component {
     }
 
     componentWillMount() {
-        const wss = new WebSocket('ws://localhost:8000');
+        const wss = new WebSocket(config.socket_address);
 
         wss.onopen = ev => {
-            console.log(ev, 'event on open... ')
             this.setState({ connected: true })
         }
 
@@ -25,7 +26,6 @@ export default class Home extends Component {
                 return;
             }
             const ips = JSON.parse(data).data;
-            console.log('response', ips);
             this.setState({ ips });
         }
     }
