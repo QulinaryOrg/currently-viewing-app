@@ -11,6 +11,7 @@ services:
       - main_network
     volumes: 
       - ./client:/client
+    env_file: ./client/.env
 
   server:
     build: ./server
@@ -24,7 +25,7 @@ services:
       - ./server:/server
     depends_on:
       - redis
-    env_file: ./.env
+    env_file: ./server/.env
 
   redis:
     container_name: viewing_redis
