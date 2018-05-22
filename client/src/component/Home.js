@@ -6,7 +6,7 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ips: [],
+            ips: {},
             connected: false
         };
     }
@@ -25,6 +25,7 @@ export default class Home extends Component {
                 return;
             }
             const ips = JSON.parse(data).data;
+            console.log('response', ips);
             this.setState({ ips });
         }
     }
@@ -40,9 +41,13 @@ export default class Home extends Component {
         }
 
         return (<div>
-            <header className="navbar flex-column">Monitor</header>
+            <header className="navbar bd-navbar flex-column"><span className="h2">Monitor</span></header>
             <div className="container">
-                <div className="row"><List ips={ips} /></div>
+                <div className="row justify-content-center">
+                    <div className="col-4">
+                        <List ips={ips} />
+                    </div>
+                </div>
             </div>
         </div>)
     }
