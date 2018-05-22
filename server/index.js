@@ -66,4 +66,4 @@ wss.on('connection', async (ws, req) => {
     })
 });
 
-server.listen(port, () => console.log('Http Server listening', port));
+server.listen(port, () => logger.info('Http Server listening on port:' + port));
