@@ -2,6 +2,7 @@ import { createClient } from 'redis';
 import helper from './redis_helper';
 import config from '../config';
 import constants from './constants';
+import logger from './logger'
 
 const { REDIS_IP_KEY } = constants;
 const { redis_port, redis_url } = config;
@@ -9,7 +10,7 @@ const { redis_port, redis_url } = config;
 // should be a sigleton if file is imported multiple times to aviod multiple clients
 const redis = createClient({ host: redis_url, port: redis_port });
 
-console.log('Redis connection established.');
+logger.info('Redis connection established.');
 
 
 const {
@@ -20,9 +21,9 @@ const {
     hgetAsync
 } = helper(redis);
 
-console.log('Purging cache...');
+logger.info('Purging cache...');
 redis.flushall();
-console.log('Purging cache completed!');
+logger.info('Purging cache completed!');
 
 
 /// return object of ip->noOfConnections
@@ -46,7 +47,7 @@ export const removeUser = async (key) => {
             await hsetAsync(REDIS_IP_KEY, key, noOfConnections);
         }
     } catch (error) {
-        console.log(error); // should use a loggine mechanism
+        logger.error(error); // should use a loggine mechanism
     }
 }
 

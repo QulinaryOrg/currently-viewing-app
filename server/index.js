@@ -7,6 +7,7 @@ import {
     removeUser,
     appendUsers
 } from './utils/ip_manager'
+import logger from './utils/logger'
 
 const { port } = config;
 const server = new createServer((req, res) => {
@@ -30,8 +31,7 @@ wss.on('connection', async (ws, req) => {
         await appendUsers(ip);
         result = await getConnectedUsers();
     } catch (error) {
-        
-        console.log(error) // Use logging mechanism
+        logger.error(error)
         ws.send({ error, message: 'something went wrong connecting to you' });
         return
     }
@@ -56,7 +56,7 @@ wss.on('connection', async (ws, req) => {
             await removeUser(ws.identifer);
             result = await getConnectedUsers();
         } catch (error) {
-            console.log(error); // Use logging mechanism
+            logger.error(error)
         }
 
         wss.clients.forEach((ws) => {
