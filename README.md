@@ -36,8 +36,6 @@ Things i would have done during my dayjob, but didn't do in this test:
 ### Test
     npm run test
 
-####--------------
-
 ## APPLICATION
     cd app
 
