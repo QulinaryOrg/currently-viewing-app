@@ -1,5 +1,4 @@
 import {Server} from './server';
-import { Socket } from 'net';
 
 export class Application extends Server
 {
