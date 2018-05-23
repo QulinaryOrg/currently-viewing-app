@@ -1,0 +1,25 @@
+{
+  "name": "viewing-server",
+  "version": "1.0.0",
+  "description": "Display currently views ips",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:prod": "babel-node .",
+    "start:dev": "babel-watch . -L"
+  },
+  "author": "Chijioke Ndubisi",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-watch": "^2.0.7"
+  },
+  "dependencies": {
+    "redis": "^2.8.0",
+    "winston": "^3.0.0-rc5",
+    "ws": "^5.1.1"
+  }
+}
