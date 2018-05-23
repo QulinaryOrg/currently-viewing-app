@@ -20,7 +20,7 @@ export class Server
             var port = this.server.address().port;
             var family = this.server.address().family;
 
-            console.log("Application started. listening on: //%s:%s | %s", host, port, family);
+            console.log('Application started. listening on: //%s:%s | %s', host, port, family);
             this.serverReady();
         });
     }

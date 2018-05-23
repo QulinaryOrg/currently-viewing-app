@@ -10,7 +10,7 @@ export class Application extends Server
     }
     
     getIp(address:string) {
-        let ip = address.split(":");
+        let ip = address.split(':');
         return ip[ip.length-1]
     }
 
@@ -37,6 +37,6 @@ export class Application extends Server
 
     serverReady() {
         //for anything depends on server ready state
-        console.log("server ready");
+        console.log('server ready');
     }
 }
