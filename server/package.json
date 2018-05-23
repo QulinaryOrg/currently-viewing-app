@@ -1,0 +1,23 @@
+{
+  "name": "currently-viewing-server",
+  "version": "0.1.0",
+  "description": "currently-viewing-server",
+  "main": "index",
+  "author": "Peter Fenyvesi",
+  "scripts": {
+    "compile": "tsc",
+    "test": "jasmine-ts **/*.spec.ts",
+    "start": "node index"
+  },
+  "dependencies": {
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.6.3",
+    "@types/node": "^8.0.31",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jasmine-ts": "^0.2.1",
+    "request": "^2.83.0",
+    "tslint": "^5.10.0"
+  }
+}
