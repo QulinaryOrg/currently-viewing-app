@@ -1,36 +1,30 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { ipsReceived } from '../redux/ips/actions';
+import { ownIpReceived } from '../redux/own-ip/actions';
 import io from 'socket.io-client';
 import Intro from './Intro';
 import IpList from './IpList';
 import GithubLink from './GithubLink';
 
 class App extends React.PureComponent {
-  state = {
-    ownIp: '127.0.0.1',
-    ips: [],
-  };
-
   componentDidMount() {
     const socket = io();
 
     // receive own ip once
     socket.on('own-ip', ip => {
-      this.setState({
-        ownIp: ip,
-      });
+      this.props.ownIpReceived(ip);
     });
 
     // receive ips (and again each time ip list changes)
     socket.on('ips', ips => {
-      this.setState({
-        ips,
-      });
+      this.props.ipsReceived(ips);
     });
   }
 
   render() {
-    const { ownIp, ips } = this.state;
+    const { ownIp, ips } = this.props;
 
     return (
       <div className="App">
@@ -47,9 +41,19 @@ class App extends React.PureComponent {
   }
 }
 
-// App.propTypes = {
-//   ownIp: PropTypes.string.isRequired,
-//   ips: PropTypes.array.isRequired,
-// };
+App.propTypes = {
+  ownIp: PropTypes.string.isRequired,
+  ips: PropTypes.array.isRequired,
+  ipsReceived: PropTypes.func.isRequired,
+  ownIpReceived: PropTypes.func.isRequired,
+};
 
-export default App;
+const mapStateToProps = state => ({
+  ownIp: state.ownIp,
+  ips: state.ips,
+});
+
+const mapDispatchToProps = { ipsReceived, ownIpReceived };
+
+export { App };
+export default connect(mapStateToProps, mapDispatchToProps)(App);
