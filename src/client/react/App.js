@@ -1,18 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import io from 'socket.io-client';
 import Intro from './Intro';
 import IpList from './IpList';
 import GithubLink from './GithubLink';
 
 class App extends React.PureComponent {
+  state = {
+    ownIp: '127.0.0.1',
+    ips: [],
+  };
+
+  componentDidMount() {
+    const socket = io();
+
+    // receive own ip once
+    socket.on('own-ip', ip => {
+      this.setState({
+        ownIp: ip,
+      });
+    });
+
+    // receive ips (and again each time ip list changes)
+    socket.on('ips', ips => {
+      this.setState({
+        ips,
+      });
+    });
+  }
+
   render() {
-    const ownIp = '127.0.0.1';
-    const ips = [
-      '236.189.115.20',
-      '127.0.0.1',
-      '206.189.115.20',
-      '276.189.115.20',
-    ];
+    const { ownIp, ips } = this.state;
 
     return (
       <div className="App">
@@ -29,9 +47,9 @@ class App extends React.PureComponent {
   }
 }
 
-App.propTypes = {
-  ownIp: PropTypes.string.isRequired,
-  ips: PropTypes.array.isRequired,
-};
+// App.propTypes = {
+//   ownIp: PropTypes.string.isRequired,
+//   ips: PropTypes.array.isRequired,
+// };
 
 export default App;
