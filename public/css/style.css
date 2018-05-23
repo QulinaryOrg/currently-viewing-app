@@ -1,0 +1,109 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #eae7dd;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.App {
+  width: 100%;
+  max-width: 650px;
+  padding: 48px 16px;
+  margin: 0 auto;
+}
+
+.Intro h1 {
+  font-weight: 600;
+  font-size: 26px;
+  color: #e85a4f;
+  letter-spacing: 0.3px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.Intro p {
+  font-size: 17px;
+  color: #8e8d8a;
+  letter-spacing: -0.15px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+
+.IpList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.IpListItem {
+  background: #ffffff;
+  color: #d8c3a5;
+  letter-spacing: 0.24px;
+  font-size: 20px;
+  height: 70px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.IpListItem img {
+  margin-right: 12px;
+}
+
+.IpListItem .label {
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.IpListItem.you {
+  background: #e98074;
+  color: #eae7dd;
+  height: 74px;
+  margin: -2px -8px 0px -8px;
+  padding: 0 32px;
+}
+
+.you-text {
+  font-weight: normal;
+}
+
+.GithubLink {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .App {
+    padding: 72px 16px;
+  }
+
+  .Intro h1 {
+    font-size: 34px;
+    letter-spacing: 0.35px;
+  }
+
+  .IpListItem {
+    font-size: 22px;
+  }
+
+  .IpListItem.you {
+    margin: -2px -16px 0px -16px;
+    padding: 0 40px;
+  }
+}

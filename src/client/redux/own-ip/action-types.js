@@ -1,0 +1,1 @@
+export const OWN_IP_RECEIVED = 'OWN_IP_RECEIVED';
