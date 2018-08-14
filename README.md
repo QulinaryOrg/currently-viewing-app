@@ -31,6 +31,7 @@ Create a single-page web app that:
 
 You will be evaluated with the following in mind:
 
+- Did the candidate follow basic instructions correctly?
 - Does the solution satisfy the three requirements?
 - Does the solution run locally based on the provided instructions?
 - Does the implementation follow established best practices (design patterns, language usage, code formatting, etc..)?
