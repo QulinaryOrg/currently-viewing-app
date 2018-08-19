@@ -1,0 +1,31 @@
+#visitors {
+  border-collapse: collapse;
+  width: 100%;
+
+  @mixin corner {
+    border: 1px solid #ddd;
+    padding: 3px;
+
+  }
+
+  td {
+    @include corner;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  th {
+    @include corner;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    background-color: #fafafa;
+    color: black;
+  }
+}

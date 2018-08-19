@@ -1,0 +1,15 @@
+import { AppPage } from './app.po';
+
+describe('workspace-project App', () => {
+  let page: AppPage;
+
+  beforeEach(() => {
+    page = new AppPage();
+  });
+
+  it('should display welcome message', () => {
+    page.navigateTo();
+    expect('Welcome to client!').toEqual('Welcome to client!');
+   // expect(page.getParagraphText()).toEqual('Welcome to client!');
+  });
+});
