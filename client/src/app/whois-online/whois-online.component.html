@@ -1,0 +1,22 @@
+<div>
+  <h3>
+    Who is online!
+  </h3>
+  <table align="center" id="visitors">
+    <thead>
+    <th>No</th>
+    <th>IP</th>
+    <th>Time</th>
+    <th>Last visited</th>
+    </thead>
+    <tbody *ngIf="listIps">
+    <tr *ngFor="let user of listIps  | unique; index as i">
+
+      <td>{{i + 1}}</td>
+      <td>{{user.ip}}</td>
+      <td>{{user.lastlogin | date:'M-d-y, h:mm:ss a'}}</td>
+      <td>{{user.lastlogin | momentjs}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "currently viewing app api",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test --timeout 60000",
+    "start": "DEBUG=* nodemon server.js",
+    "pretest": "./node_modules/jshint/bin/jshint app && ./node_modules/jshint/bin/jshint config"
+  },
+  "author": "Md. Zahirul Haque",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.0",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8",
+    "morgan": "^1.8.2",
+    "socket.io": "^2.1.1"
+  },
+  "bin": {
+    "jshint": "./bin/jshint"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "jshint": "^2.9.5",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3"
+  }
+}
